@@ -85,6 +85,8 @@
         .btn-whatsapp:hover { background: linear-gradient(to bottom right, #15803d, #14532d); }
         .btn-outline { background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; backdrop-filter: blur(4px); }
         .btn-outline:hover { background-color: rgba(255,255,255,0.2); }
+        .btn-premier-dark { background-color: #001b3a; color: white; }
+        .btn-premier-dark:hover { background-color: #000; }
 
         /* Utilitário de Container Seguro */
         .safe-container {
@@ -94,13 +96,18 @@
             padding-left: 2rem; 
             padding-right: 2rem;
         }
+
+        /* Seções Mobile Full */
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+
         @media (max-width: 640px) {
             .carousel-logo { height: 35px; margin: 0 1rem; }
-            h1 { font-size: 2rem !important; line-height: 1.2 !important; }
-            h2 { font-size: 1.75rem !important; }
-            .btn-default { width: 100%; padding: 1rem; font-size: 0.95rem; }
+            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; }
+            h2 { font-size: 1.8rem !important; }
+            .btn-default { width: 100%; padding: 1.1rem; font-size: 1rem; }
             .safe-container { padding-left: 1.25rem; padding-right: 1.25rem; }
             .testimonial-card { min-width: 280px; max-width: 280px; }
+            .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
         }
     </style>
 </head>
@@ -115,17 +122,26 @@
     <header class="bg-white text-premier-dark relative z-40 border-b border-slate-100 shadow-sm">
         <div class="safe-container flex items-center justify-between py-3 md:py-4">
             <div class="flex items-center gap-2">
-                <img src="assets/logos/logopremier.png" alt="Premier Seguros" class="h-8 md:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img src="logopremier.png" alt="Premier Seguros" class="h-10 md:h-14 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="hidden text-xl md:text-2xl font-black tracking-tighter text-premier-dark">PREMIER<span class="text-premier-yellow">.</span></div>
             </div>
-            <div class="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                <span class="text-[10px] font-bold uppercase tracking-wide text-green-700">Concierge Online</span>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex flex-col items-end text-right">
+                    <div class="flex items-center gap-1 text-premier-yellow text-xs font-bold uppercase tracking-widest mb-0.5">
+                        <i class="fas fa-clock"></i> Atendimento
+                    </div>
+                    <span class="text-sm font-bold text-premier-dark leading-tight">Seg a Qui: 8:30 - 17:00</span>
+                    <span class="text-xs font-semibold text-slate-500">Sex: 8:30 - 18:00</span>
+                </div>
+                <div class="md:hidden flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-wide text-green-700">Aberto</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="hero-gradient text-white py-12 md:py-28 text-center relative overflow-hidden">
+    <section class="hero-gradient text-white py-16 md:py-28 text-center relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
             <i class="fas fa-shield-alt absolute -top-10 -left-10 text-9xl"></i>
             <i class="fas fa-car absolute bottom-10 right-10 text-[12rem]"></i>
@@ -145,8 +161,7 @@
             </h1>
             
             <p class="text-base md:text-2xl font-medium mb-10 text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
-                Cobertura superior à da concessionária, custando <span class="text-premier-yellow font-bold">até 35% menos</span>. 
-                Garanta a segurança do seu 0km ou primeiro seguro antes mesmo de tirar o carro da loja.
+                Não fique preso à única opção da loja. Cote em +15 seguradoras e economize <span class="text-premier-yellow font-bold">até 35%</span> no valor final, com coberturas superiores.
             </p>
             
             <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-6">
@@ -161,13 +176,12 @@
         </div>
     </section>
 
-    <div class="py-10 bg-white border-b border-slate-100">
+    <div class="py-12 bg-white border-b border-slate-100">
         <div class="safe-container text-center mb-8">
             <p class="text-sm md:text-base font-bold text-slate-400 uppercase tracking-[0.2em]">
                 Seguradoras Parceiras
             </p>
         </div>
-
         <div class="carousel-container">
             <div class="carousel-track">
                 <img src="assets/logos/zurih.svg" class="carousel-logo" alt="Zurich">
@@ -178,14 +192,13 @@
                 <img src="assets/logos/hdi.png" class="carousel-logo" alt="HDI">
                 <img src="assets/logos/itau.webp" class="carousel-logo" alt="Itaú">
                 <img src="assets/logos/lyberti.svg" class="carousel-logo" alt="Liberty">
-                <img src="assets/logos/mapfre.webp" class="carousel-logo" alt="Mapfre">
+                <img src="data:image/webp;base64,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" class="carousel-logo" alt="Mapfre">
                 <img src="assets/logos/metlife.png" class="carousel-logo" alt="MetLife">
                 <img src="assets/logos/porto.png" class="carousel-logo" alt="Porto Seguro">
                 <img src="assets/logos/sulamerica.png" class="carousel-logo" alt="SulAmérica">
                 <img src="assets/logos/tokyo.svg" class="carousel-logo" alt="Tokio Marine">
                 <img src="assets/logos/unimed.png" class="carousel-logo" alt="Unimed Seguros">
                 <img src="assets/logos/unimedrecife.png" class="carousel-logo" alt="Unimed Recife">
-
                 <img src="assets/logos/zurih.svg" class="carousel-logo" alt="Zurich">
                 <img src="assets/logos/allianz.svg" class="carousel-logo" alt="Allianz">
                 <img src="assets/logos/amil.png" class="carousel-logo" alt="Amil">
@@ -197,146 +210,159 @@
         </div>
     </div>
 
-    <section id="stats-section" class="py-12 md:py-20 bg-white text-center">
+    <section id="stats-section" class="py-16 md:py-24 bg-white text-center section-padding">
         <div class="safe-container" data-aos="fade-up">
             <h2 class="text-3xl md:text-5xl font-black text-premier-dark mb-4 uppercase tracking-tight">
                 Referência <span class="text-premier-yellow">Absoluta</span>
             </h2>
-            <p class="text-base md:text-lg text-slate-600 mb-10 max-w-2xl mx-auto font-medium">
-                Mais de <strong>20 anos</strong> entregando segurança real e solidez.
+            <p class="text-base md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto font-medium">
+                Mais de <strong>20 anos</strong> de experiência, entregando segurança real e solidez para milhares de pernambucanos.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-5xl md:text-7xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1">
+                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-6xl font-black text-premier-dark mb-3 flex justify-center items-center gap-1">
                         <span class="counter" data-target="250">0</span><span class="text-4xl text-blue-600">+</span>
                     </div>
-                    <div class="text-xs uppercase font-black text-slate-400 tracking-widest">Atendimentos Mensais</div>
+                    <div class="text-sm uppercase font-black text-slate-400 tracking-widest">Atendimentos Mensais</div>
                 </div>
-                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-5xl md:text-7xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1">
+                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-6xl font-black text-premier-dark mb-3 flex justify-center items-center gap-1">
                         <span class="counter-float" data-target="8.5">0</span><span class="text-4xl text-blue-600">K</span>
                     </div>
-                    <div class="text-xs uppercase font-black text-slate-400 tracking-widest">Clientes Segurados</div>
+                    <div class="text-sm uppercase font-black text-slate-400 tracking-widest">Clientes Segurados</div>
                 </div>
-                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-5xl md:text-7xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1">
+                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-6xl font-black text-premier-dark mb-3 flex justify-center items-center gap-1">
                         <span class="counter" data-target="20">0</span><span class="text-4xl text-blue-600">+</span>
                     </div>
-                    <div class="text-xs uppercase font-black text-slate-400 tracking-widest">Anos de História</div>
+                    <div class="text-sm uppercase font-black text-slate-400 tracking-widest">Anos de História</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="fluxo" class="py-16 bg-slate-50">
+    <section id="fluxo" class="py-16 md:py-24 bg-slate-50 section-padding">
         <div class="safe-container">
-            <h2 class="text-2xl md:text-4xl font-black text-center text-premier-dark mb-12">Do WhatsApp à Proteção</h2>
+            <h2 class="text-3xl md:text-5xl font-black text-center text-premier-dark mb-16">Do WhatsApp à Proteção</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative items-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-center">
                 <div class="hidden md:block absolute top-1/2 left-[30%] w-[10%] h-1 bg-gradient-to-r from-green-200 to-blue-200"></div>
                 <div class="hidden md:block absolute top-1/2 right-[30%] w-[10%] h-1 bg-gradient-to-r from-blue-200 to-yellow-200"></div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-green-500 flex flex-col items-center text-center" data-aos="fade-right">
-                    <div class="w-16 h-16 mb-4 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl border-b-8 border-green-500 flex flex-col items-center text-center h-full" data-aos="fade-right">
+                    <div class="w-20 h-20 mb-6 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-4xl shadow-md">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3 class="text-xl font-black text-premier-dark mb-2">Chamou no Zap</h3>
-                    <p class="text-slate-600 text-sm">Mandou a foto da nota fiscal? Já começamos a trabalhar.</p>
+                    <h3 class="text-2xl font-black text-premier-dark mb-3">Chamou no Zap</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">Envie a foto da nota fiscal ou os dados do veículo. Nosso time inicia a busca imediatamente.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-blue-600 flex flex-col items-center text-center" data-aos="fade-up">
-                    <div class="w-16 h-16 mb-4 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl border-b-8 border-blue-600 flex flex-col items-center text-center h-full" data-aos="fade-up">
+                    <div class="w-20 h-20 mb-6 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-4xl shadow-md">
                         <i class="fas fa-search-dollar"></i>
                     </div>
-                    <h3 class="text-xl font-black text-premier-dark mb-2">Cotou em 15 Cias</h3>
-                    <p class="text-slate-600 text-sm">Nós varremos o mercado e te entregamos o menor preço.</p>
+                    <h3 class="text-2xl font-black text-premier-dark mb-3">Busca Inteligente</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">Nossa tecnologia varre 15 seguradoras simultaneamente para encontrar o menor preço.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-yellow-400 flex flex-col items-center text-center" data-aos="fade-left">
-                    <div class="w-16 h-16 mb-4 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                <div class="bg-white p-10 rounded-[2rem] shadow-xl border-b-8 border-yellow-400 flex flex-col items-center text-center h-full" data-aos="fade-left">
+                    <div class="w-20 h-20 mb-6 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center text-4xl shadow-md">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <h3 class="text-xl font-black text-premier-dark mb-2">Fechou e Levou</h3>
-                    <p class="text-slate-600 text-sm">Ativação instantânea. Você sai da loja protegido e feliz.</p>
+                    <h3 class="text-2xl font-black text-premier-dark mb-3">Fechou e Levou</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">Apólice emitida e ativação instantânea. Você sai da loja protegido e feliz.</p>
                 </div>
-            </div>
-            
-            <div class="text-center mt-10">
-                <p class="text-slate-400 text-sm italic"><i class="fas fa-bolt text-yellow-500 mr-1"></i> Processo médio de 15 minutos via WhatsApp</p>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white border-b border-slate-100">
+    <section class="py-16 md:py-24 bg-white border-b border-slate-100 section-padding">
         <div class="safe-container text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-premier-dark mb-4">Proteção 360º para sua Família</h2>
-            <p class="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
-                Seguro não é só sobre o carro. É sobre garantir que imprevistos não virem dívidas para quem você ama.
+            <h2 class="text-3xl md:text-4xl font-black text-premier-dark mb-6">Proteção 360º para sua Família</h2>
+            <p class="text-slate-600 text-lg mb-12 max-w-3xl mx-auto leading-relaxed">
+                Seguro não é apenas sobre o carro. É sobre garantir que imprevistos no trânsito não se transformem em dívidas ou dores de cabeça para quem você ama.
             </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 hover:-translate-y-1 transition duration-300">
-                    <i class="fas fa-users text-premier-dark text-3xl mb-3"></i>
-                    <h4 class="font-bold text-sm md:text-base text-premier-dark">Danos a Terceiros</h4>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-users text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-bold text-lg text-premier-dark">Danos a Terceiros</h4>
+                    <p class="text-sm text-slate-500 mt-2">Cobre prejuízos a outros veículos e pessoas.</p>
                 </div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 hover:-translate-y-1 transition duration-300">
-                    <i class="fas fa-heartbeat text-premier-dark text-3xl mb-3"></i>
-                    <h4 class="font-bold text-sm md:text-base text-premier-dark">Acidentes Pessoais</h4>
+                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-heartbeat text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-bold text-lg text-premier-dark">Acidentes Pessoais</h4>
+                    <p class="text-sm text-slate-500 mt-2">Indenização para todos os ocupantes.</p>
                 </div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 hover:-translate-y-1 transition duration-300">
-                    <i class="fas fa-home text-premier-dark text-3xl mb-3"></i>
-                    <h4 class="font-bold text-sm md:text-base text-premier-dark">Assist. Residencial</h4>
+                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-home text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-bold text-lg text-premier-dark">Assist. Residencial</h4>
+                    <p class="text-sm text-slate-500 mt-2">Chaveiro, encanador e eletricista grátis.</p>
                 </div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 hover:-translate-y-1 transition duration-300">
-                    <i class="fas fa-layer-group text-premier-dark text-3xl mb-3"></i>
-                    <h4 class="font-bold text-sm md:text-base text-premier-dark">Vidros Completos</h4>
+                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-layer-group text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-bold text-lg text-premier-dark">Vidros Completos</h4>
+                    <p class="text-sm text-slate-500 mt-2">Troca de para-brisas, faróis e retrovisores.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-slate-50">
+    <section class="py-20 bg-slate-50 section-padding">
         <div class="safe-container" data-aos="fade-up">
             <h2 class="text-2xl md:text-4xl font-black text-premier-dark mb-10 text-center">Por Que Somos a Melhor Escolha</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
-                    <div class="w-12 h-12 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-handshake-simple text-xl"></i></div>
-                    <div><h3 class="text-base font-black text-premier-dark">Independência Total</h3><p class="text-slate-500 text-xs mt-1">Defendemos seu interesse, não o da seguradora.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-handshake-simple text-2xl"></i></div>
+                    <div><h3 class="text-lg font-black text-premier-dark">Independência Total</h3><p class="text-slate-500 text-sm mt-1">Defendemos seu interesse, não o da seguradora.</p></div>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
-                    <div class="w-12 h-12 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-bolt text-xl"></i></div>
-                    <div><h3 class="text-base font-black text-premier-dark">Zero Risco</h3><p class="text-slate-500 text-xs mt-1">Seguro ativo na entrega das chaves. Sem lacunas.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-bolt text-2xl"></i></div>
+                    <div><h3 class="text-lg font-black text-premier-dark">Zero Risco</h3><p class="text-slate-500 text-sm mt-1">Seguro ativo na entrega das chaves. Sem lacunas.</p></div>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
-                    <div class="w-12 h-12 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-headset text-xl"></i></div>
-                    <div><h3 class="text-base font-black text-premier-dark">Pós-Venda Humano</h3><p class="text-slate-500 text-xs mt-1">Equipe local dedicada para sinistro e renovação.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-headset text-2xl"></i></div>
+                    <div><h3 class="text-lg font-black text-premier-dark">Pós-Venda Humano</h3><p class="text-slate-500 text-sm mt-1">Equipe local dedicada para sinistro e renovação.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-premier-dark text-white relative overflow-hidden">
+    <section class="py-20 bg-premier-dark text-white relative overflow-hidden section-padding">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-premier-yellow rounded-full mix-blend-overlay filter blur-[100px] opacity-10 animate-pulse"></div>
         <div class="safe-container relative z-10" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-black text-premier-yellow mb-12 text-center uppercase">Excelência Premier</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="flex items-center gap-5 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/10 transition">
-                    <div class="w-10 h-10 bg-premier-yellow rounded-full flex items-center justify-center flex-shrink-0 text-premier-dark font-bold"><i class="fas fa-check"></i></div>
-                    <div><h3 class="font-black text-lg uppercase mb-1 text-white">Ativação Imediata</h3><p class="text-blue-100/80 text-xs">Sua segurança ativada na hora via Nota Fiscal.</p></div>
+            <h2 class="text-3xl md:text-5xl font-black text-premier-yellow mb-16 text-center uppercase">Excelência Premier</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
+                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-bolt"></i></div>
+                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Ativação Flash</h3><p class="text-blue-100/80 text-base leading-relaxed">Emissão imediata da apólice usando apenas a nota fiscal do veículo.</p></div>
                 </div>
-                <div class="flex items-center gap-5 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/10 transition">
-                    <div class="w-10 h-10 bg-premier-yellow rounded-full flex items-center justify-center flex-shrink-0 text-premier-dark font-bold"><i class="fas fa-star"></i></div>
-                    <div><h3 class="font-black text-lg uppercase mb-1 text-white">Vistoria VIP</h3><p class="text-blue-100/80 text-xs">Nosso concierge vai até você onde estiver.</p></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
+                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-concierge-bell"></i></div>
+                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Vistoria Concierge</h3><p class="text-blue-100/80 text-base leading-relaxed">Agendamos e realizamos a vistoria no local de sua preferência.</p></div>
                 </div>
-                <div class="flex items-center gap-5 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/10 transition md:col-span-2">
-                    <div class="w-10 h-10 bg-premier-yellow rounded-full flex items-center justify-center flex-shrink-0 text-premier-dark font-bold"><i class="fas fa-crown"></i></div>
-                    <div><h3 class="font-black text-lg uppercase mb-1 text-white">Assistência Premium</h3><p class="text-blue-100/80 text-xs">Carro reserva, chaveiro e suporte completo 24h.</p></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
+                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-headset"></i></div>
+                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Suporte Humanizado</h3><p class="text-blue-100/80 text-base leading-relaxed">Time local disponível para sinistros, dúvidas e renovações.</p></div>
+                </div>
+                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
+                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-car"></i></div>
+                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Carro Reserva VIP</h3><p class="text-blue-100/80 text-base leading-relaxed">Garantia de mobilidade com diárias estendidas de 7 a 30 dias.</p></div>
+                </div>
+                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
+                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-shield-alt"></i></div>
+                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Proteção Total</h3><p class="text-blue-100/80 text-base leading-relaxed">Coberturas completas contra roubo, furto, colisão e incêndio.</p></div>
+                </div>
+                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
+                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-tags"></i></div>
+                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Clube de Benefícios</h3><p class="text-blue-100/80 text-base leading-relaxed">Descontos exclusivos em serviços automotivos e lojas parceiras.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white overflow-hidden">
+    <section class="py-16 bg-white overflow-hidden section-full">
         <div class="safe-container mb-10 text-center">
             <h2 class="text-2xl md:text-4xl font-black text-premier-dark">O que dizem nossos clientes</h2>
         </div>
@@ -368,37 +394,37 @@
         </div>
     </section>
 
-    <section class="py-16 bg-slate-50">
+    <section class="py-20 bg-slate-50 section-padding">
         <div class="safe-container">
-            <div class="text-center mb-12">
+            <div class="text-center mb-16">
                 <span class="text-red-600 font-bold tracking-widest uppercase text-xs bg-red-50 px-4 py-1 rounded-full">Alerta ao Consumidor</span>
-                <h2 class="text-2xl md:text-4xl font-black text-premier-dark mt-4">
+                <h2 class="text-3xl md:text-5xl font-black text-premier-dark mt-4">
                     O que a concessionária <span class="text-red-600 underline decoration-4 underline-offset-4">não te conta</span>
                 </h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up">
-                    <i class="fas fa-hand-holding-dollar text-red-500 text-3xl mt-1"></i>
-                    <div><h4 class="font-bold text-lg text-premier-dark mb-1">Superfaturamento Oculto</h4><p class="text-sm text-slate-600">Você paga juros bancários sobre o valor do seguro sem perceber.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up">
+                    <i class="fas fa-hand-holding-dollar text-red-500 text-4xl mt-1"></i>
+                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Superfaturamento Oculto</h4><p class="text-base text-slate-600 leading-relaxed">Você paga juros bancários sobre o valor do seguro sem perceber.</p></div>
                 </div>
-                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-lock text-red-500 text-3xl mt-1"></i>
-                    <div><h4 class="font-bold text-lg text-premier-dark mb-1">Monopólio de Opção</h4><p class="text-sm text-slate-600">Te oferecem apenas a seguradora parceira da loja. Sem liberdade.</p></div>
+                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-lock text-red-500 text-4xl mt-1"></i>
+                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Monopólio de Opção</h4><p class="text-base text-slate-600 leading-relaxed">Te oferecem apenas a seguradora parceira da loja. Sem liberdade.</p></div>
                 </div>
-                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-percentage text-red-500 text-3xl mt-1"></i>
-                    <div><h4 class="font-bold text-lg text-premier-dark mb-1">Dívida Desnecessária</h4><p class="text-sm text-slate-600">Financiar o seguro gera uma bola de neve de juros compostos.</p></div>
+                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-percentage text-red-500 text-4xl mt-1"></i>
+                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Dívida Desnecessária</h4><p class="text-base text-slate-600 leading-relaxed">Financiar o seguro gera uma bola de neve de juros compostos.</p></div>
                 </div>
-                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-ban text-red-500 text-3xl mt-1"></i>
-                    <div><h4 class="font-bold text-lg text-premier-dark mb-1">Venda Casada (Ilegal)</h4><p class="text-sm text-slate-600">Dizer que a garantia do carro depende do seguro da loja é mentira.</p></div>
+                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-ban text-red-500 text-4xl mt-1"></i>
+                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Venda Casada (Ilegal)</h4><p class="text-base text-slate-600 leading-relaxed">Dizer que a garantia do carro depende do seguro da loja é mentira.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-premier-yellow py-16 px-5 text-center relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
+    <section class="bg-premier-yellow py-20 px-5 text-center relative overflow-hidden section-padding">
+        <div class="safe-container relative z-10">
             <h2 class="text-3xl md:text-5xl font-black text-premier-dark mb-6 uppercase">Condições Especiais 0km</h2>
             <p class="text-lg font-bold text-premier-dark/80 mb-12 max-w-4xl mx-auto italic">Resgate seus benefícios exclusivos para veículos recém-adquiridos.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -411,45 +437,52 @@
         </div>
     </section>
 
-    <section class="py-16 bg-white">
+    <section class="py-20 bg-white section-padding">
         <div class="safe-container" data-aos="fade-up">
-            <h2 class="text-2xl md:text-4xl font-black text-center text-premier-dark mb-12">Concessionária vs Premier</h2>
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
-                <div class="hidden md:grid grid-cols-3 bg-premier-dark text-white font-bold text-xl">
-                    <div class="p-6">Aspecto</div><div class="p-6 text-center bg-gray-800">Concessionária</div><div class="p-6 text-center bg-premier-yellow text-premier-dark">Premier</div>
+            <h2 class="text-3xl md:text-5xl font-black text-center text-premier-dark mb-16">Concessionária vs Premier</h2>
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+                <div class="hidden md:grid grid-cols-3 bg-premier-dark text-white font-bold text-2xl">
+                    <div class="p-8">Aspecto</div><div class="p-8 text-center bg-gray-800">Concessionária</div><div class="p-8 text-center bg-premier-yellow text-premier-dark">Premier</div>
                 </div>
-                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-6 md:p-0">
-                    <div class="md:hidden font-bold text-xl text-premier-dark mb-2">Preço Final</div><div class="hidden md:flex items-center p-6 font-bold text-slate-700">Preço Final</div>
-                    <div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0"><span class="md:hidden text-gray-500 font-semibold">Loja:</span><span class="text-red-600 font-medium bg-red-50 px-3 py-1 rounded">Caro (+ Juros)</span></div>
-                    <div class="flex justify-between md:justify-center items-center md:p-6"><span class="md:hidden text-premier-dark font-bold">Premier:</span><span class="font-black text-green-700 bg-green-50 px-3 py-1 rounded">Até 35% OFF</span></div>
+                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-8 md:p-0">
+                    <div class="md:hidden font-bold text-2xl text-premier-dark mb-4">Preço Final</div><div class="hidden md:flex items-center p-8 font-bold text-slate-700 text-xl">Preço Final</div>
+                    <div class="flex justify-between md:justify-center items-center md:p-8 mb-4 md:mb-0"><span class="md:hidden text-gray-500 font-semibold text-lg">Loja:</span><span class="text-red-600 font-bold bg-red-50 px-4 py-2 rounded-lg text-lg">Caro (+ Juros)</span></div>
+                    <div class="flex justify-between md:justify-center items-center md:p-8"><span class="md:hidden text-premier-dark font-bold text-lg">Premier:</span><span class="font-black text-green-700 bg-green-50 px-4 py-2 rounded-lg text-lg">Até 35% OFF</span></div>
                 </div>
-                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-6 md:p-0">
-                    <div class="md:hidden font-bold text-xl text-premier-dark mb-2 mt-4 border-t pt-4">Ativação</div><div class="hidden md:flex items-center p-6 font-bold text-slate-700">Ativação</div>
-                    <div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0"><span class="md:hidden text-gray-500 font-semibold">Loja:</span><span class="text-slate-500">Burocrática</span></div>
-                    <div class="flex justify-between md:justify-center items-center md:p-6"><span class="md:hidden text-premier-dark font-bold">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-3 py-1 rounded">Imediata via NF</span></div>
+                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-8 md:p-0">
+                    <div class="md:hidden font-bold text-2xl text-premier-dark mb-4 mt-4 border-t pt-4">Ativação</div><div class="hidden md:flex items-center p-8 font-bold text-slate-700 text-xl">Ativação</div>
+                    <div class="flex justify-between md:justify-center items-center md:p-8 mb-4 md:mb-0"><span class="md:hidden text-gray-500 font-semibold text-lg">Loja:</span><span class="text-slate-500 font-medium text-lg">Burocrática</span></div>
+                    <div class="flex justify-between md:justify-center items-center md:p-8"><span class="md:hidden text-premier-dark font-bold text-lg">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-4 py-2 rounded-lg text-lg">Imediata via NF</span></div>
                 </div>
-                <div class="flex flex-col md:grid md:grid-cols-3 p-6 md:p-0">
-                    <div class="md:hidden font-bold text-xl text-premier-dark mb-2 mt-4 border-t pt-4">Variedade</div><div class="hidden md:flex items-center p-6 font-bold text-slate-700">Variedade</div>
-                    <div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0"><span class="md:hidden text-gray-500 font-semibold">Loja:</span><span class="text-slate-500">1 Opção</span></div>
-                    <div class="flex justify-between md:justify-center items-center md:p-6"><span class="md:hidden text-premier-dark font-bold">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-3 py-1 rounded">Multimarcas</span></div>
+                <div class="flex flex-col md:grid md:grid-cols-3 p-8 md:p-0">
+                    <div class="md:hidden font-bold text-2xl text-premier-dark mb-4 mt-4 border-t pt-4">Variedade</div><div class="hidden md:flex items-center p-8 font-bold text-slate-700 text-xl">Variedade</div>
+                    <div class="flex justify-between md:justify-center items-center md:p-8 mb-4 md:mb-0"><span class="md:hidden text-gray-500 font-semibold text-lg">Loja:</span><span class="text-slate-500 font-medium text-lg">1 Opção</span></div>
+                    <div class="flex justify-between md:justify-center items-center md:p-8"><span class="md:hidden text-premier-dark font-bold text-lg">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-4 py-2 rounded-lg text-lg">Multimarcas</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-5 bg-premier-dark text-white text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-black mb-6">Cotação 100% Sem Compromisso</h2>
-            <p class="text-lg text-slate-300 mb-12">Grátis, rápida e sem pressão. Garantimos que você vai se surpreender com a economia.</p>
-            <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." class="btn-default btn-whatsapp btn-call-to-action text-lg px-12 py-5 shadow-lg shadow-green-900/50">
-                <i class="fab fa-whatsapp text-2xl"></i> COTAR AGORA
+    <section class="py-24 px-5 bg-premier-dark text-white text-center section-padding">
+        <div class="safe-container">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Cotação 100% Sem Compromisso</h2>
+            
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-12 text-blue-200 font-bold text-base md:text-xl">
+                <span class="flex items-center gap-3"><i class="fas fa-stopwatch text-premier-yellow text-2xl"></i> Rápido: Menos de 2 min</span>
+                <span class="flex items-center gap-3"><i class="fas fa-lock text-premier-yellow text-2xl"></i> Dados 100% Seguros</span>
+                <span class="flex items-center gap-3"><i class="fas fa-piggy-bank text-premier-yellow text-2xl"></i> Economia Garantida</span>
+            </div>
+
+            <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." class="btn-default btn-whatsapp btn-call-to-action text-xl px-16 py-6 shadow-2xl shadow-green-500/30 w-full md:w-auto">
+                <i class="fab fa-whatsapp text-3xl"></i> QUERO MINHA COTAÇÃO GRÁTIS
             </a>
+            
+            <p class="mt-8 text-sm text-slate-400 opacity-80">Prometemos não enviar spam. Você falará com um especialista real.</p>
         </div>
     </section>
 
-    <section class="relative py-24 bg-cover bg-center md:bg-fixed" style="background-image: url('assets/fundo-sede.png');">
+    <section class="relative py-24 bg-cover bg-center md:bg-fixed section-padding" style="background-image: url('assets/fundo-sede.png');">
         <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-black/40"></div>
-        
         <div class="safe-container relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
             <div class="w-full md:w-1/2 text-white" data-aos="fade-right">
                 <span class="inline-block py-1 px-3 rounded-full bg-premier-yellow/20 border border-premier-yellow text-premier-yellow font-bold text-xs mb-4 uppercase tracking-widest backdrop-blur-sm">
@@ -460,11 +493,10 @@
                     Prefere conversar olho no olho? Venha tomar um café conosco. Estamos localizados no coração de Recife, prontos para te receber com estacionamento e conforto.
                 </p>
                 <a href="https://maps.google.com/?q=Av.+Manoel+Borba,+423+-+Boa+Vista,+Recife+-+PE,+50070-000" target="_blank" 
-                   class="inline-flex items-center gap-3 btn-default bg-white text-premier-dark hover:bg-premier-yellow transition shadow-xl font-bold">
+                   class="inline-flex items-center gap-3 btn-default bg-white text-premier-dark hover:bg-premier-yellow transition shadow-xl font-bold w-full md:w-auto justify-center">
                     <i class="fas fa-location-arrow"></i> TRAÇAR ROTA
                 </a>
             </div>
-
             <div class="w-full md:w-1/3 flex flex-col gap-4" data-aos="fade-left">
                 <div class="group bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl flex items-center gap-5 hover:bg-white hover:border-white transition-all duration-300 cursor-default hover:-translate-y-1 shadow-lg">
                     <div class="w-14 h-14 bg-premier-yellow rounded-full flex items-center justify-center text-premier-dark text-xl shadow-lg group-hover:scale-110 transition-transform">
@@ -475,7 +507,6 @@
                         <p class="text-slate-300 group-hover:text-slate-600 text-sm">Av. Manoel Borba, 423<br>Boa Vista, Recife - PE</p>
                     </div>
                 </div>
-
                 <a href="tel:+558130818181" class="group bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl flex items-center gap-5 hover:bg-white hover:border-white transition-all duration-300 hover:-translate-y-1 shadow-lg">
                     <div class="w-14 h-14 bg-premier-yellow rounded-full flex items-center justify-center text-premier-dark text-xl shadow-lg group-hover:scale-110 transition-transform">
                         <i class="fas fa-phone"></i>
@@ -491,7 +522,7 @@
 
     <footer class="bg-slate-50 py-12 px-5 border-t border-slate-200 text-center">
         <div class="safe-container flex flex-col items-center">
-             <img src="assets/logos/logopremier.png" alt="Premier Seguros" class="h-10 opacity-60 mb-8 grayscale hover:grayscale-0 transition" onerror="this.style.display='none'">
+             <img src="logopremier.png" alt="Premier Seguros" class="h-10 opacity-60 mb-8 grayscale hover:grayscale-0 transition" onerror="this.style.display='none'">
              
              <div class="flex justify-center gap-6 mb-8">
                 <a href="https://instagram.com/sigapremier" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-instagram text-xl group-hover:scale-110 transition"></i></a>
