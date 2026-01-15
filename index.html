@@ -4,479 +4,392 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Especialistas em Seguro 0km e Primeiro Seguro. Cobertura superior à concessionária com até 35% de economia. Premier Seguros.">
-    <meta name="theme-color" content="#ffffff">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Premier Seguros | 0km com Preço Justo">
-    <meta property="og:description" content="Proteção de elite pagando menos que na concessionária. Cote agora.">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Premier+Seguros+0km">
-
+    <meta name="theme-color" content="#001b3a">
     <title>Premier Seguros | Proteção de Elite, Preço Justo</title>
-
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
+        /* --- ANIMAÇÕES --- */
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
             70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         .animate-pulse-green { animation: pulse-green 2s infinite; }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-            15% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
-            30% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-            45% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
-            60% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-        }
         .btn-call-to-action { animation: heartbeat 3s infinite; }
+        @keyframes heartbeat {
+             0%, 30%, 60%, 100% { transform: scale(1); }
+             15%, 45% { transform: scale(1.05); }
+        }
         
+        /* --- CORES --- */
         .bg-premier-dark { background-color: #001b3a; }
         .bg-premier-yellow { background-color: #ffcc00; }
         .text-premier-yellow { color: #ffcc00; }
         .text-premier-dark { color: #001b3a; }
-        
-        .hero-gradient { background: linear-gradient(135deg, #001b3a 0%, #00284d 100%); }
-        
-        /* Carrossel de Logos */
-        .carousel-container { overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-        .carousel-track { display: flex; animation: scroll 60s linear infinite; width: max-content; align-items: center; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
-        .carousel-logo {
-            height: 55px; 
-            width: auto; 
-            margin: 0 2.5rem;
-            filter: none !important;
-            opacity: 1 !important;
-            transition: transform 0.3s ease;
-            object-fit: contain;
+        .hero-gradient { background: radial-gradient(circle at top right, #002f66 0%, #001b3a 100%); }
+        .bg-grid-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 30px 30px; }
+        .bg-dark-slate { background-color: #0f172a; } /* Chumbo */
+
+        /* --- ONDAS (WAVES) --- */
+        .section-relative { position: relative; }
+        .wave-container {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            pointer-events: none;
+            z-index: 2;
         }
+        .wave-bottom { bottom: -1px; }
+        .wave-container svg { display: block; width: calc(100% + 1.3px); height: 40px; }
+        @media (min-width: 768px) { .wave-container svg { height: 70px; } }
+
+        /* Cores de preenchimento (Fill) ajustadas para a nova ordem */
+        .fill-white { fill: #ffffff; }
+        .fill-slate { fill: #f8fafc; } 
+        .fill-dark { fill: #001b3a; }
+        .fill-yellow { fill: #ffcc00; }
+        .fill-dark-slate { fill: #0f172a; }
+
+        /* --- LAYOUT --- */
+        .safe-container { 
+            max-width: 1280px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            padding-left: 1.5rem; 
+            padding-right: 1.5rem; 
+            position: relative; 
+            z-index: 10; 
+        }
+        .section-padding { padding-top: 5rem; padding-bottom: 7rem; } 
+
+        /* --- CARROSSEL --- */
+        .carousel-container { overflow: hidden; position: relative; padding: 1rem 0; width: 100%; }
+        .carousel-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
+        @keyframes scroll { to { transform: translateX(-50%); } }
+        .carousel-logo { height: 45px; width: auto; margin: 0 1.5rem; transition: transform 0.3s; }
         .carousel-logo:hover { transform: scale(1.1); }
 
-        /* Carrossel de Depoimentos */
-        .marquee-track-left { display: flex; gap: 1.5rem; animation: marquee-left 60s linear infinite; width: max-content; }
-        .marquee-track-right { display: flex; gap: 1.5rem; animation: marquee-right 60s linear infinite; width: max-content; }
+        /* --- MARQUEE DEPOIMENTOS (ATIVO) --- */
+        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; padding-bottom: 1.5rem; }
+        .marquee-track { display: flex; width: max-content; gap: 1.5rem; }
+        .marquee-left { animation: scroll-left 60s linear infinite; }
+        .marquee-right { animation: scroll-right 60s linear infinite; }
+
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 0.75rem)); } }
+        @keyframes scroll-right { 0% { transform: translateX(calc(-50% - 0.75rem)); } 100% { transform: translateX(0); } }
         
-        @keyframes marquee-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes marquee-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .testimonial-card { flex: 0 0 auto; width: 340px; max-width: 340px; }
 
-        .testimonial-card { min-width: 320px; max-width: 320px; white-space: normal; }
+        /* --- COMPONENTES --- */
+        .btn-default { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.8rem 2rem; border-radius: 9999px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s ease; }
+        .btn-whatsapp { background: linear-gradient(to bottom right, #16a34a, #15803d); color: white; }
+        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(22, 163, 74, 0.6); }
+        .btn-outline { background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white; backdrop-filter: blur(4px); }
+        .btn-premier-dark { background-color: #001b3a; color: white; border: 2px solid #001b3a; }
+        .btn-premier-dark:hover { background-color: white; color: #001b3a; }
 
-        /* Botões */
-        .btn-default {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
-            padding: 1rem 2.5rem; border-radius: 9999px; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 0.05em;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-whatsapp { background: linear-gradient(to bottom right, #16a34a, #15803d); color: white; border: 1px solid #166534; }
-        .btn-whatsapp:hover { background: linear-gradient(to bottom right, #15803d, #14532d); }
-        .btn-outline { background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; backdrop-filter: blur(4px); }
-        .btn-outline:hover { background-color: rgba(255,255,255,0.2); }
-        .btn-premier-dark { background-color: #001b3a; color: white; }
-        .btn-premier-dark:hover { background-color: #000; }
-
-        /* Utilitário de Container Seguro */
-        .safe-container {
-            max-width: 1280px; 
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 2rem; 
-            padding-right: 2rem;
-        }
-
-        /* Seções Mobile Full */
-        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
-
+        /* --- MOBILE --- */
         @media (max-width: 640px) {
-            .carousel-logo { height: 35px; margin: 0 1rem; }
-            h1 { font-size: 2.2rem !important; line-height: 1.1 !important; }
-            h2 { font-size: 1.8rem !important; }
-            .btn-default { width: 100%; padding: 1.1rem; font-size: 1rem; }
-            .safe-container { padding-left: 1.25rem; padding-right: 1.25rem; }
-            .testimonial-card { min-width: 280px; max-width: 280px; }
-            .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+            h1 { font-size: 2rem !important; line-height: 1.1 !important; }
+            h2 { font-size: 1.7rem !important; }
+            .carousel-logo { height: 30px; margin: 0 0.8rem; }
+            .testimonial-card { width: 280px; }
         }
+
+        #sales-toast { transform: translateY(150%); transition: transform 0.5s; bottom: 20px; left: 20px; z-index: 9999; }
+        #sales-toast.show { transform: translateY(0); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-yellow-200 selection:text-premier-dark overflow-x-hidden">
+<body class="bg-white text-slate-800 selection:bg-yellow-200 selection:text-premier-dark pb-20 md:pb-0">
 
-    <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." 
-       class="fixed bottom-6 right-6 z-50 bg-green-600 text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-2xl animate-pulse-green hover:scale-110 transition-all duration-300 group"
-       aria-label="Fale no WhatsApp">
+    <a href="https://wa.me/5574999008507" class="hidden md:flex fixed bottom-6 right-6 z-50 bg-green-600 text-white w-16 h-16 rounded-full items-center justify-center text-3xl shadow-2xl animate-pulse-green hover:scale-110 transition-all duration-300 group" aria-label="WhatsApp">
         <i class="fab fa-whatsapp group-hover:rotate-12 transition-transform"></i>
     </a>
 
+    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t z-50 px-4 py-3 flex items-center justify-between gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+        <div class="flex flex-col">
+            <span class="text-[10px] font-bold text-red-600 uppercase animate-pulse">Expira em:</span>
+            <span class="text-lg font-black text-premier-dark font-mono leading-none" id="mobile-timer">05:00:00</span>
+        </div>
+        <a href="https://wa.me/5574999008507" class="flex-1 btn-whatsapp rounded-xl py-3 font-bold text-sm text-center shadow-lg"><i class="fab fa-whatsapp text-lg"></i> COTAR AGORA</a>
+    </div>
+
+    <div id="sales-toast" class="fixed bg-premier-dark/95 backdrop-blur-md text-white rounded-lg shadow-2xl p-3 flex items-center gap-3 border border-white/10 max-w-[300px]">
+        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 animate-bounce"><i class="fas fa-check"></i></div>
+        <div><p id="toast-message" class="text-xs font-medium leading-tight">Ricardo cotou um Compass.</p><p class="text-[10px] text-slate-400">Agora mesmo</p></div>
+    </div>
+
+    <div class="bg-red-600 text-white py-2 text-center relative z-50">
+        <div class="safe-container flex justify-center items-center gap-2">
+            <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest animate-pulse"><i class="fas fa-exclamation-circle"></i> Condição 0km expira em:</span>
+            <span class="font-mono font-black text-lg leading-none" id="header-timer">05:00:00</span>
+        </div>
+    </div>
     <header class="bg-white text-premier-dark relative z-40 border-b border-slate-100 shadow-sm">
-        <div class="safe-container flex items-center justify-between py-3 md:py-4">
-            <div class="flex items-center gap-2">
-                <img src="logopremier.png" alt="Premier Seguros" class="h-10 md:h-14 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="hidden text-xl md:text-2xl font-black tracking-tighter text-premier-dark">PREMIER<span class="text-premier-yellow">.</span></div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="hidden md:flex flex-col items-end text-right">
-                    <div class="flex items-center gap-1 text-premier-yellow text-xs font-bold uppercase tracking-widest mb-0.5">
-                        <i class="fas fa-clock"></i> Atendimento
-                    </div>
-                    <span class="text-sm font-bold text-premier-dark leading-tight">Seg a Qui: 8:30 - 17:00</span>
-                    <span class="text-xs font-semibold text-slate-500">Sex: 8:30 - 18:00</span>
-                </div>
-                <div class="md:hidden flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span class="text-[10px] font-bold uppercase tracking-wide text-green-700">Aberto</span>
+        <div class="safe-container flex items-center justify-between py-4">
+            <img src="logopremier.png" alt="Premier" class="h-12 w-auto object-contain" onerror="this.outerHTML='<span class=\'text-3xl font-black tracking-tighter\'>PREMIER<span class=\'text-premier-yellow text-5xl leading-none\'>.</span></span>'">
+            <div class="flex items-center gap-3 bg-green-50 border border-green-100 px-4 py-2 rounded-full">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <div class="flex flex-col leading-none">
+                    <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Status</span>
+                    <span class="text-xs font-bold text-green-700">Corretores Online</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="hero-gradient text-white py-16 md:py-28 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
-            <i class="fas fa-shield-alt absolute -top-10 -left-10 text-9xl"></i>
-            <i class="fas fa-car absolute bottom-10 right-10 text-[12rem]"></i>
-        </div>
-
-        <div class="safe-container relative z-10" data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6 animate-pulse">
-                <i class="fas fa-star text-premier-yellow text-xs"></i>
-                <span class="text-[11px] md:text-xs font-bold uppercase tracking-widest text-blue-50">
-                    Proteção de Elite • Preço Justo
-                </span>
-            </div>
-
-            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 uppercase tracking-tight drop-shadow-lg">
-                Seu carro novo merece<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Proteção de Elite.</span>
-            </h1>
-            
-            <p class="text-base md:text-2xl font-medium mb-10 text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
-                Não fique preso à única opção da loja. Cote em +15 seguradoras e economize <span class="text-premier-yellow font-bold">até 35%</span> no valor final, com coberturas superiores.
-            </p>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-6">
-                <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." 
-                   class="btn-default btn-whatsapp btn-call-to-action shadow-lg shadow-green-900/50">
-                    <i class="fab fa-whatsapp text-2xl"></i> COTAR AGORA
-                </a>
-                <a href="#fluxo" class="btn-default btn-outline text-sm md:text-base py-3 md:py-4">
-                    COMO FUNCIONA
-                </a>
+    <section class="hero-gradient section-relative text-white pt-20 pb-20 md:pt-32 md:pb-32 text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none"><i class="fas fa-shield-alt absolute -top-10 -left-10 text-9xl"></i><i class="fas fa-car absolute bottom-40 right-10 text-[12rem]"></i></div>
+        <div class="safe-container" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-8 animate-pulse shadow-lg"><i class="fas fa-fire text-yellow-400 text-sm"></i><span class="text-[11px] md:text-xs font-bold uppercase tracking-widest text-yellow-100">Condição Exclusiva Hoje</span></div>
+            <h1 class="text-3xl md:text-6xl font-black leading-tight mb-6 uppercase drop-shadow-2xl tracking-tight">Seu carro novo merece<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Proteção de Elite.</span></h1>
+            <p class="text-base md:text-2xl font-medium mb-10 text-blue-100/90 max-w-3xl mx-auto leading-relaxed">Não fique preso à única opção da loja. Cote em +15 seguradoras e economize <span class="text-premier-yellow font-bold">até 35%</span> com coberturas superiores.</p>
+            <div class="flex flex-col items-center gap-8">
+                <div class="flex flex-col md:flex-row justify-center gap-4 w-full md:w-auto"><a href="https://wa.me/5574999008507" class="btn-default btn-whatsapp btn-call-to-action shadow-xl shadow-green-900/40 text-lg px-8"><i class="fab fa-whatsapp text-2xl"></i> COTAR AGORA</a></div>
+                <div class="bg-black/20 backdrop-blur-md rounded-full px-5 py-2 flex items-center gap-3 border border-white/10">
+                    <div class="flex -space-x-2"><img class="w-7 h-7 rounded-full border border-premier-dark" src="https://i.pravatar.cc/100?img=11"><img class="w-7 h-7 rounded-full border border-premier-dark" src="https://i.pravatar.cc/100?img=12"><img class="w-7 h-7 rounded-full border border-premier-dark" src="https://i.pravatar.cc/100?img=13"></div>
+                    <div class="text-left leading-none"><p class="text-[10px] text-blue-100"><strong>124</strong> cotaram hoje</p><p class="text-[10px] text-green-400 font-bold flex items-center gap-1 animate-pulse"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> 32 vendo agora</p></div>
+                </div>
             </div>
         </div>
+        <div class="wave-container wave-bottom"><svg class="fill-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
     </section>
 
-    <div class="py-12 bg-white border-b border-slate-100">
-        <div class="safe-container text-center mb-8">
-            <p class="text-sm md:text-base font-bold text-slate-400 uppercase tracking-[0.2em]">
-                Seguradoras Parceiras
-            </p>
-        </div>
+    <div class="pt-2 pb-12 bg-white section-relative z-30">
+        <div class="safe-container text-center mb-6"><p class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-[0.3em] flex justify-center items-center gap-2"><i class="fas fa-handshake"></i> Seguradoras Parceiras</p></div>
         <div class="carousel-container">
             <div class="carousel-track">
-                <img src="assets/logos/zurih.svg" class="carousel-logo" alt="Zurich">
-                <img src="assets/logos/allianz.svg" class="carousel-logo" alt="Allianz">
-                <img src="assets/logos/amil.png" class="carousel-logo" alt="Amil">
-                <img src="assets/logos/bradesco.png" class="carousel-logo" alt="Bradesco">
-                <img src="assets/logos/hapvida.png" class="carousel-logo" alt="Hapvida">
-                <img src="assets/logos/hdi.png" class="carousel-logo" alt="HDI">
-                <img src="assets/logos/itau.webp" class="carousel-logo" alt="Itaú">
-                <img src="assets/logos/lyberti.svg" class="carousel-logo" alt="Liberty">
-                <img src="data:image/webp;base64,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" class="carousel-logo" alt="Mapfre">
-                <img src="assets/logos/metlife.png" class="carousel-logo" alt="MetLife">
-                <img src="assets/logos/porto.png" class="carousel-logo" alt="Porto Seguro">
-                <img src="assets/logos/sulamerica.png" class="carousel-logo" alt="SulAmérica">
-                <img src="assets/logos/tokyo.svg" class="carousel-logo" alt="Tokio Marine">
-                <img src="assets/logos/unimed.png" class="carousel-logo" alt="Unimed Seguros">
-                <img src="assets/logos/unimedrecife.png" class="carousel-logo" alt="Unimed Recife">
-                <img src="assets/logos/zurih.svg" class="carousel-logo" alt="Zurich">
-                <img src="assets/logos/allianz.svg" class="carousel-logo" alt="Allianz">
-                <img src="assets/logos/amil.png" class="carousel-logo" alt="Amil">
-                <img src="assets/logos/bradesco.png" class="carousel-logo" alt="Bradesco">
-                <img src="assets/logos/hapvida.png" class="carousel-logo" alt="Hapvida">
-                <img src="assets/logos/hdi.png" class="carousel-logo" alt="HDI">
-                <img src="assets/logos/itau.webp" class="carousel-logo" alt="Itaú">
+                <img src="assets/logos/zurih.svg" class="carousel-logo"><img src="assets/logos/allianz.svg" class="carousel-logo"><img src="assets/logos/amil.png" class="carousel-logo"><img src="assets/logos/bradesco.png" class="carousel-logo"><img src="assets/logos/hapvida.png" class="carousel-logo"><img src="assets/logos/hdi.png" class="carousel-logo"><img src="assets/logos/itau.webp" class="carousel-logo"><img src="assets/logos/lyberti.svg" class="carousel-logo"><img src="assets/logos/mapfre.svg" class="carousel-logo"><img src="assets/logos/metlife.png" class="carousel-logo"><img src="assets/logos/porto.png" class="carousel-logo"><img src="assets/logos/sulamerica.png" class="carousel-logo"><img src="assets/logos/tokyo.svg" class="carousel-logo">
+                <img src="assets/logos/zurih.svg" class="carousel-logo"><img src="assets/logos/allianz.svg" class="carousel-logo"><img src="assets/logos/amil.png" class="carousel-logo"><img src="assets/logos/bradesco.png" class="carousel-logo"><img src="assets/logos/hapvida.png" class="carousel-logo"><img src="assets/logos/hdi.png" class="carousel-logo"><img src="assets/logos/itau.webp" class="carousel-logo"><img src="assets/logos/lyberti.svg" class="carousel-logo"><img src="assets/logos/mapfre.svg" class="carousel-logo"><img src="assets/logos/metlife.png" class="carousel-logo"><img src="assets/logos/porto.png" class="carousel-logo"><img src="assets/logos/sulamerica.png" class="carousel-logo"><img src="assets/logos/tokyo.svg" class="carousel-logo">
             </div>
         </div>
+        <div class="wave-container wave-bottom"><svg class="fill-slate" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
     </div>
 
-    <section id="stats-section" class="py-16 md:py-24 bg-white text-center section-padding">
+    <section id="stats-section" class="section-relative section-padding bg-slate-50 bg-grid-pattern text-center">
         <div class="safe-container" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-black text-premier-dark mb-4 uppercase tracking-tight">
-                Referência <span class="text-premier-yellow">Absoluta</span>
-            </h2>
-            <p class="text-base md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto font-medium">
-                Mais de <strong>20 anos</strong> de experiência, entregando segurança real e solidez para milhares de pernambucanos.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-6xl font-black text-premier-dark mb-3 flex justify-center items-center gap-1">
-                        <span class="counter" data-target="250">0</span><span class="text-4xl text-blue-600">+</span>
-                    </div>
-                    <div class="text-sm uppercase font-black text-slate-400 tracking-widest">Atendimentos Mensais</div>
-                </div>
-                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-6xl font-black text-premier-dark mb-3 flex justify-center items-center gap-1">
-                        <span class="counter-float" data-target="8.5">0</span><span class="text-4xl text-blue-600">K</span>
-                    </div>
-                    <div class="text-sm uppercase font-black text-slate-400 tracking-widest">Clientes Segurados</div>
-                </div>
-                <div class="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                    <div class="text-6xl font-black text-premier-dark mb-3 flex justify-center items-center gap-1">
-                        <span class="counter" data-target="20">0</span><span class="text-4xl text-blue-600">+</span>
-                    </div>
-                    <div class="text-sm uppercase font-black text-slate-400 tracking-widest">Anos de História</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="fluxo" class="py-16 md:py-24 bg-slate-50 section-padding">
-        <div class="safe-container">
-            <h2 class="text-3xl md:text-5xl font-black text-center text-premier-dark mb-16">Do WhatsApp à Proteção</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-center">
-                <div class="hidden md:block absolute top-1/2 left-[30%] w-[10%] h-1 bg-gradient-to-r from-green-200 to-blue-200"></div>
-                <div class="hidden md:block absolute top-1/2 right-[30%] w-[10%] h-1 bg-gradient-to-r from-blue-200 to-yellow-200"></div>
-
-                <div class="bg-white p-10 rounded-[2rem] shadow-xl border-b-8 border-green-500 flex flex-col items-center text-center h-full" data-aos="fade-right">
-                    <div class="w-20 h-20 mb-6 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-4xl shadow-md">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-premier-dark mb-3">Chamou no Zap</h3>
-                    <p class="text-slate-600 text-base leading-relaxed">Envie a foto da nota fiscal ou os dados do veículo. Nosso time inicia a busca imediatamente.</p>
-                </div>
-
-                <div class="bg-white p-10 rounded-[2rem] shadow-xl border-b-8 border-blue-600 flex flex-col items-center text-center h-full" data-aos="fade-up">
-                    <div class="w-20 h-20 mb-6 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-4xl shadow-md">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-premier-dark mb-3">Busca Inteligente</h3>
-                    <p class="text-slate-600 text-base leading-relaxed">Nossa tecnologia varre 15 seguradoras simultaneamente para encontrar o menor preço.</p>
-                </div>
-
-                <div class="bg-white p-10 rounded-[2rem] shadow-xl border-b-8 border-yellow-400 flex flex-col items-center text-center h-full" data-aos="fade-left">
-                    <div class="w-20 h-20 mb-6 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center text-4xl shadow-md">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-premier-dark mb-3">Fechou e Levou</h3>
-                    <p class="text-slate-600 text-base leading-relaxed">Apólice emitida e ativação instantânea. Você sai da loja protegido e feliz.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 md:py-24 bg-white border-b border-slate-100 section-padding">
-        <div class="safe-container text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-premier-dark mb-6">Proteção 360º para sua Família</h2>
-            <p class="text-slate-600 text-lg mb-12 max-w-3xl mx-auto leading-relaxed">
-                Seguro não é apenas sobre o carro. É sobre garantir que imprevistos no trânsito não se transformem em dívidas ou dores de cabeça para quem você ama.
-            </p>
-            
+            <h2 class="text-3xl md:text-5xl font-black text-premier-dark mb-4 uppercase tracking-tight">Referência <span class="text-premier-yellow">Absoluta</span></h2>
+            <p class="text-base md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto font-medium">Não arrisque seu patrimônio. Confie em quem tem números sólidos.</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
-                    <i class="fas fa-users text-premier-dark text-4xl mb-4"></i>
-                    <h4 class="font-bold text-lg text-premier-dark">Danos a Terceiros</h4>
-                    <p class="text-sm text-slate-500 mt-2">Cobre prejuízos a outros veículos e pessoas.</p>
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl hover:-translate-y-2 transition-all group">
+                    <div class="text-4xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1 group-hover:text-blue-700 transition"><span class="counter" data-target="250">0</span><span class="text-blue-600">+</span></div>
+                    <div class="text-[10px] md:text-xs uppercase font-black text-slate-400 tracking-widest">Atendimentos/Mês</div>
                 </div>
-                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
-                    <i class="fas fa-heartbeat text-premier-dark text-4xl mb-4"></i>
-                    <h4 class="font-bold text-lg text-premier-dark">Acidentes Pessoais</h4>
-                    <p class="text-sm text-slate-500 mt-2">Indenização para todos os ocupantes.</p>
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl hover:-translate-y-2 transition-all group">
+                    <div class="text-4xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1 group-hover:text-blue-700 transition"><span class="counter-float" data-target="8.5">0</span><span class="text-blue-600">K</span></div>
+                    <div class="text-[10px] md:text-xs uppercase font-black text-slate-400 tracking-widest">Clientes Segurados</div>
                 </div>
-                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
-                    <i class="fas fa-home text-premier-dark text-4xl mb-4"></i>
-                    <h4 class="font-bold text-lg text-premier-dark">Assist. Residencial</h4>
-                    <p class="text-sm text-slate-500 mt-2">Chaveiro, encanador e eletricista grátis.</p>
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl hover:-translate-y-2 transition-all group">
+                    <div class="text-4xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1 group-hover:text-blue-700 transition"><span class="counter" data-target="20">0</span><span class="text-blue-600">+</span></div>
+                    <div class="text-[10px] md:text-xs uppercase font-black text-slate-400 tracking-widest">Anos de História</div>
                 </div>
-                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:-translate-y-2 transition duration-300 flex flex-col items-center">
-                    <i class="fas fa-layer-group text-premier-dark text-4xl mb-4"></i>
-                    <h4 class="font-bold text-lg text-premier-dark">Vidros Completos</h4>
-                    <p class="text-sm text-slate-500 mt-2">Troca de para-brisas, faróis e retrovisores.</p>
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl hover:-translate-y-2 transition-all group">
+                    <div class="text-4xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1 group-hover:text-blue-700 transition"><span class="text-blue-600">R$</span><span class="counter" data-target="15">0</span><span class="text-blue-600">Mi</span></div>
+                    <div class="text-[10px] md:text-xs uppercase font-black text-slate-400 tracking-widest">Economizados</div>
                 </div>
             </div>
         </div>
+        <div class="wave-container wave-bottom"><svg class="fill-dark-slate" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,234.7C672,245,768,203,864,186.7C960,171,1056,181,1152,197.3C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
     </section>
 
-    <section class="py-20 bg-slate-50 section-padding">
+    <section class="section-relative section-padding bg-dark-slate">
+        <div class="safe-container pt-6">
+            <div class="text-center mb-10">
+                <span class="bg-red-600 text-white font-black px-4 py-1 rounded-full text-xs uppercase tracking-widest inline-block mb-4 shadow-lg animate-pulse">⚠️ ANTES DE FECHAR NA LOJA</span>
+                <h2 class="text-3xl md:text-5xl font-black text-white mt-2 drop-shadow-md">O que a concessionária <span class="text-red-500 underline decoration-4 underline-offset-4 decoration-red-700 italic">não quer</span> que você saiba</h2>
+                <p class="text-slate-400 mt-4 text-sm max-w-2xl mx-auto">Você acabou de comprar um sonho. Não deixe que letras miúdas transformem isso em pesadelo.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start gap-4 p-8 bg-white rounded-3xl shadow-2xl border-l-8 border-red-600 hover:scale-[1.02] transition duration-300" data-aos="fade-up">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 text-red-600"><i class="fas fa-hand-holding-dollar text-2xl"></i></div>
+                    <div><h4 class="font-black text-xl text-slate-900 mb-2">Juros Abusivos</h4><p class="text-sm text-slate-600 leading-relaxed font-medium">Ao incluir o seguro no financiamento, você paga juros compostos sobre o valor da proteção. É dinheiro jogado fora.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-8 bg-white rounded-3xl shadow-2xl border-l-8 border-red-600 hover:scale-[1.02] transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 text-red-600"><i class="fas fa-lock text-2xl"></i></div>
+                    <div><h4 class="font-black text-xl text-slate-900 mb-2">Sem Liberdade</h4><p class="text-sm text-slate-600 leading-relaxed font-medium">Eles trabalham com uma única seguradora parceira, impedindo você de encontrar preços até 40% melhores no mercado.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-8 bg-white rounded-3xl shadow-2xl border-l-8 border-red-600 hover:scale-[1.02] transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 text-red-600"><i class="fas fa-percentage text-2xl"></i></div>
+                    <div><h4 class="font-black text-xl text-slate-900 mb-2">Comissão Elevada</h4><p class="text-sm text-slate-600 leading-relaxed font-medium">O valor costuma ser inflacionado propositalmente para cobrir as altas comissões de venda da equipe da loja.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-8 bg-white rounded-3xl shadow-2xl border-l-8 border-red-600 hover:scale-[1.02] transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 text-red-600"><i class="fas fa-ban text-2xl"></i></div>
+                    <div><h4 class="font-black text-xl text-slate-900 mb-2">Venda Casada Velada</h4><p class="text-sm text-slate-600 leading-relaxed font-medium">Muitos vendedores insinuam que a aprovação do carro depende do seguro da loja. Isso é ilegal e falso.</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,96L48,122.7C96,149,192,203,288,208C384,213,480,171,576,138.7C672,107,768,85,864,106.7C960,128,1056,192,1152,202.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
+
+    <section class="section-relative section-padding bg-white">
         <div class="safe-container" data-aos="fade-up">
-            <h2 class="text-2xl md:text-4xl font-black text-premier-dark mb-10 text-center">Por Que Somos a Melhor Escolha</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
-                    <div class="w-14 h-14 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-handshake-simple text-2xl"></i></div>
-                    <div><h3 class="text-lg font-black text-premier-dark">Independência Total</h3><p class="text-slate-500 text-sm mt-1">Defendemos seu interesse, não o da seguradora.</p></div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
-                    <div class="w-14 h-14 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-bolt text-2xl"></i></div>
-                    <div><h3 class="text-lg font-black text-premier-dark">Zero Risco</h3><p class="text-slate-500 text-sm mt-1">Seguro ativo na entrega das chaves. Sem lacunas.</p></div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
-                    <div class="w-14 h-14 bg-premier-yellow/10 rounded-full flex items-center justify-center flex-shrink-0 text-premier-yellow"><i class="fas fa-headset text-2xl"></i></div>
-                    <div><h3 class="text-lg font-black text-premier-dark">Pós-Venda Humano</h3><p class="text-slate-500 text-sm mt-1">Equipe local dedicada para sinistro e renovação.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-premier-dark text-white relative overflow-hidden section-padding">
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-premier-yellow rounded-full mix-blend-overlay filter blur-[100px] opacity-10 animate-pulse"></div>
-        <div class="safe-container relative z-10" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-black text-premier-yellow mb-16 text-center uppercase">Excelência Premier</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-bolt"></i></div>
-                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Ativação Flash</h3><p class="text-blue-100/80 text-base leading-relaxed">Emissão imediata da apólice usando apenas a nota fiscal do veículo.</p></div>
-                </div>
-                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-concierge-bell"></i></div>
-                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Vistoria Concierge</h3><p class="text-blue-100/80 text-base leading-relaxed">Agendamos e realizamos a vistoria no local de sua preferência.</p></div>
-                </div>
-                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-headset"></i></div>
-                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Suporte Humanizado</h3><p class="text-blue-100/80 text-base leading-relaxed">Time local disponível para sinistros, dúvidas e renovações.</p></div>
-                </div>
-                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-car"></i></div>
-                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Carro Reserva VIP</h3><p class="text-blue-100/80 text-base leading-relaxed">Garantia de mobilidade com diárias estendidas de 7 a 30 dias.</p></div>
-                </div>
-                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-shield-alt"></i></div>
-                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Proteção Total</h3><p class="text-blue-100/80 text-base leading-relaxed">Coberturas completas contra roubo, furto, colisão e incêndio.</p></div>
-                </div>
-                <div class="flex flex-col gap-4 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition group h-full">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-2xl flex items-center justify-center text-premier-dark font-bold text-2xl group-hover:scale-110 transition"><i class="fas fa-tags"></i></div>
-                    <div><h3 class="font-black text-xl uppercase mb-2 text-white">Clube de Benefícios</h3><p class="text-blue-100/80 text-base leading-relaxed">Descontos exclusivos em serviços automotivos e lojas parceiras.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-white overflow-hidden section-full">
-        <div class="safe-container mb-10 text-center">
-            <h2 class="text-2xl md:text-4xl font-black text-premier-dark">O que dizem nossos clientes</h2>
-        </div>
-        
-        <div class="marquee-container mb-6">
-            <div class="marquee-track-left">
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Atendimento impecável! Resolveram tudo pelo WhatsApp em minutos."</p><p class="font-bold text-premier-dark text-xs mt-3">- Carlos Eduardo</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Economizei 30% comparado ao que a concessionária me ofereceu."</p><p class="font-bold text-premier-dark text-xs mt-3">- Fernanda Lima</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"A vistoria foi feita na minha garagem, sem burocracia nenhuma."</p><p class="font-bold text-premier-dark text-xs mt-3">- Roberto Dias</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Melhor cotação que encontrei para meu Compass 0km."</p><p class="font-bold text-premier-dark text-xs mt-3">- Juliana M.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Profissionais muito transparentes, explicaram todas as cláusulas."</p><p class="font-bold text-premier-dark text-xs mt-3">- Ricardo Gomes</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Atendimento impecável! Resolveram tudo pelo WhatsApp em minutos."</p><p class="font-bold text-premier-dark text-xs mt-3">- Carlos Eduardo</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Economizei 30% comparado ao que a concessionária me ofereceu."</p><p class="font-bold text-premier-dark text-xs mt-3">- Fernanda Lima</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"A vistoria foi feita na minha garagem, sem burocracia nenhuma."</p><p class="font-bold text-premier-dark text-xs mt-3">- Roberto Dias</p></div>
-            </div>
-        </div>
-
-        <div class="marquee-container">
-            <div class="marquee-track-right">
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Segurança total para minha família. Recomendo demais!"</p><p class="font-bold text-premier-dark text-xs mt-3">- Amanda S.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Já precisei do guincho e chegaram super rápido. Nota 10."</p><p class="font-bold text-premier-dark text-xs mt-3">- Paulo H.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"O consultor tirou todas as minhas dúvidas sobre o seguro 0km."</p><p class="font-bold text-premier-dark text-xs mt-3">- Mariana Costa</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Preço justo e atendimento humano, coisa rara hoje em dia."</p><p class="font-bold text-premier-dark text-xs mt-3">- Lucas P.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Saí da loja com o carro já segurado. Sensação de paz."</p><p class="font-bold text-premier-dark text-xs mt-3">- Beatriz F.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Segurança total para minha família. Recomendo demais!"</p><p class="font-bold text-premier-dark text-xs mt-3">- Amanda S.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Já precisei do guincho e chegaram super rápido. Nota 10."</p><p class="font-bold text-premier-dark text-xs mt-3">- Paulo H.</p></div>
-                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-2 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"O consultor tirou todas as minhas dúvidas sobre o seguro 0km."</p><p class="font-bold text-premier-dark text-xs mt-3">- Mariana Costa</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-slate-50 section-padding">
-        <div class="safe-container">
             <div class="text-center mb-16">
-                <span class="text-red-600 font-bold tracking-widest uppercase text-xs bg-red-50 px-4 py-1 rounded-full">Alerta ao Consumidor</span>
-                <h2 class="text-3xl md:text-5xl font-black text-premier-dark mt-4">
-                    O que a concessionária <span class="text-red-600 underline decoration-4 underline-offset-4">não te conta</span>
-                </h2>
+                <span class="bg-blue-100 text-blue-700 font-bold px-4 py-1 rounded-full text-xs uppercase tracking-widest inline-block mb-4 border border-blue-200">🏆 O Padrão Ouro</span>
+                <h2 class="text-3xl md:text-5xl font-black text-premier-dark">Premier: A Autoridade<br>Máxima em 0km</h2>
+                <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-lg">Não somos apenas "mais uma opção". Somos a única escolha lógica para quem exige proteção de elite e não aceita pagar taxas abusivas.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up">
-                    <i class="fas fa-hand-holding-dollar text-red-500 text-4xl mt-1"></i>
-                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Superfaturamento Oculto</h4><p class="text-base text-slate-600 leading-relaxed">Você paga juros bancários sobre o valor do seguro sem perceber.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 text-center hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center text-green-600 text-3xl mb-6 group-hover:scale-110 transition"><i class="fas fa-piggy-bank"></i></div>
+                    <h3 class="text-2xl font-black text-premier-dark mb-3">Até 35% Mais Barato</h3>
+                    <p class="text-slate-600 mb-6">Enquanto a concessionária lucra com sua desinformação, nós negociamos em volume para garantir o menor preço real do mercado.</p>
                 </div>
-                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-lock text-red-500 text-4xl mt-1"></i>
-                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Monopólio de Opção</h4><p class="text-base text-slate-600 leading-relaxed">Te oferecem apenas a seguradora parceira da loja. Sem liberdade.</p></div>
+                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 text-center hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-premier-yellow text-premier-dark text-[10px] font-black px-3 py-1 uppercase rounded-bl-xl">Mais Vendido</div>
+                    <div class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-3xl mb-6 group-hover:scale-110 transition"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-2xl font-black text-premier-dark mb-3">Cobertura Superior</h3>
+                    <p class="text-slate-600 mb-6">Blindamos você contra o que a loja "esquece" de avisar: danos a terceiros, vidros completos e carro reserva estendido.</p>
                 </div>
-                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-percentage text-red-500 text-4xl mt-1"></i>
-                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Dívida Desnecessária</h4><p class="text-base text-slate-600 leading-relaxed">Financiar o seguro gera uma bola de neve de juros compostos.</p></div>
-                </div>
-                <div class="flex items-start gap-6 p-8 bg-white rounded-3xl shadow-sm border-l-8 border-red-500 hover:shadow-md transition" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-ban text-red-500 text-4xl mt-1"></i>
-                    <div><h4 class="font-bold text-xl text-premier-dark mb-2">Venda Casada (Ilegal)</h4><p class="text-base text-slate-600 leading-relaxed">Dizer que a garantia do carro depende do seguro da loja é mentira.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-premier-yellow py-20 px-5 text-center relative overflow-hidden section-padding">
-        <div class="safe-container relative z-10">
-            <h2 class="text-3xl md:text-5xl font-black text-premier-dark mb-6 uppercase">Condições Especiais 0km</h2>
-            <p class="text-lg font-bold text-premier-dark/80 mb-12 max-w-4xl mx-auto italic">Resgate seus benefícios exclusivos para veículos recém-adquiridos.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark"><i class="fas fa-rocket text-premier-dark text-4xl mb-4"></i><h4 class="font-black text-lg uppercase mb-2">Ativação Flash</h4><p class="text-sm text-slate-700">Seguro ativo antes de sair da concessionária.</p></div>
-                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark"><i class="fas fa-search-dollar text-premier-dark text-4xl mb-4"></i><h4 class="font-black text-lg uppercase mb-2">Melhor Custo</h4><p class="text-sm text-slate-700">Comparamos 15 seguradoras para você.</p></div>
-                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark"><i class="fas fa-gift text-premier-dark text-4xl mb-4"></i><h4 class="font-black text-lg uppercase mb-2">Bônus Exclusivos</h4><p class="text-sm text-slate-700">Descontos em franquia e serviços extras.</p></div>
-                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark"><i class="fas fa-star text-premier-dark text-4xl mb-4"></i><h4 class="font-black text-lg uppercase mb-2">Vistoria VIP</h4><p class="text-sm text-slate-700">Vamos até você, onde estiver.</p></div>
-            </div>
-            <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." class="btn-default btn-premier-dark bg-premier-dark text-white hover:bg-black text-lg px-10 py-5">RESGATAR MEU BÔNUS AGORA</a>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white section-padding">
-        <div class="safe-container" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-black text-center text-premier-dark mb-16">Concessionária vs Premier</h2>
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
-                <div class="hidden md:grid grid-cols-3 bg-premier-dark text-white font-bold text-2xl">
-                    <div class="p-8">Aspecto</div><div class="p-8 text-center bg-gray-800">Concessionária</div><div class="p-8 text-center bg-premier-yellow text-premier-dark">Premier</div>
-                </div>
-                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-8 md:p-0">
-                    <div class="md:hidden font-bold text-2xl text-premier-dark mb-4">Preço Final</div><div class="hidden md:flex items-center p-8 font-bold text-slate-700 text-xl">Preço Final</div>
-                    <div class="flex justify-between md:justify-center items-center md:p-8 mb-4 md:mb-0"><span class="md:hidden text-gray-500 font-semibold text-lg">Loja:</span><span class="text-red-600 font-bold bg-red-50 px-4 py-2 rounded-lg text-lg">Caro (+ Juros)</span></div>
-                    <div class="flex justify-between md:justify-center items-center md:p-8"><span class="md:hidden text-premier-dark font-bold text-lg">Premier:</span><span class="font-black text-green-700 bg-green-50 px-4 py-2 rounded-lg text-lg">Até 35% OFF</span></div>
-                </div>
-                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-8 md:p-0">
-                    <div class="md:hidden font-bold text-2xl text-premier-dark mb-4 mt-4 border-t pt-4">Ativação</div><div class="hidden md:flex items-center p-8 font-bold text-slate-700 text-xl">Ativação</div>
-                    <div class="flex justify-between md:justify-center items-center md:p-8 mb-4 md:mb-0"><span class="md:hidden text-gray-500 font-semibold text-lg">Loja:</span><span class="text-slate-500 font-medium text-lg">Burocrática</span></div>
-                    <div class="flex justify-between md:justify-center items-center md:p-8"><span class="md:hidden text-premier-dark font-bold text-lg">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-4 py-2 rounded-lg text-lg">Imediata via NF</span></div>
-                </div>
-                <div class="flex flex-col md:grid md:grid-cols-3 p-8 md:p-0">
-                    <div class="md:hidden font-bold text-2xl text-premier-dark mb-4 mt-4 border-t pt-4">Variedade</div><div class="hidden md:flex items-center p-8 font-bold text-slate-700 text-xl">Variedade</div>
-                    <div class="flex justify-between md:justify-center items-center md:p-8 mb-4 md:mb-0"><span class="md:hidden text-gray-500 font-semibold text-lg">Loja:</span><span class="text-slate-500 font-medium text-lg">1 Opção</span></div>
-                    <div class="flex justify-between md:justify-center items-center md:p-8"><span class="md:hidden text-premier-dark font-bold text-lg">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-4 py-2 rounded-lg text-lg">Multimarcas</span></div>
+                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 text-center hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-20 h-20 mx-auto bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-3xl mb-6 group-hover:scale-110 transition"><i class="fas fa-medal"></i></div>
+                    <h3 class="text-2xl font-black text-premier-dark mb-3">Especialistas 0km</h3>
+                    <p class="text-slate-600 mb-6">Temos acesso direto aos sistemas das seguradoras para emissão imediata, mesmo sem placa. Você não espera nem um minuto.</p>
                 </div>
             </div>
         </div>
+        <div class="wave-container wave-bottom"><svg class="fill-dark" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,192L48,197.3C96,203,192,213,288,197.3C384,181,480,139,576,133.3C672,128,768,160,864,186.7C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
     </section>
 
-    <section class="py-24 px-5 bg-premier-dark text-white text-center section-padding">
+    <section class="section-relative section-padding bg-premier-dark text-white overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-premier-yellow rounded-full mix-blend-overlay filter blur-[120px] opacity-10 animate-pulse pointer-events-none"></div>
+        <div class="safe-container relative z-10" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-black text-premier-yellow mb-12 text-center uppercase">A Experiência VIP</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition group h-full"><div class="w-12 h-12 bg-premier-yellow rounded-xl flex items-center justify-center text-premier-dark font-bold text-xl group-hover:scale-110 transition"><i class="fas fa-bolt"></i></div><div><h3 class="font-black text-lg uppercase mb-1 text-white">Ativação Flash</h3><p class="text-blue-100/70 text-xs leading-relaxed">Emissão imediata via nota fiscal.</p></div></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition group h-full"><div class="w-12 h-12 bg-premier-yellow rounded-xl flex items-center justify-center text-premier-dark font-bold text-xl group-hover:scale-110 transition"><i class="fas fa-concierge-bell"></i></div><div><h3 class="font-black text-lg uppercase mb-1 text-white">Vistoria Concierge</h3><p class="text-blue-100/70 text-xs leading-relaxed">Realizamos no local de sua preferência.</p></div></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition group h-full"><div class="w-12 h-12 bg-premier-yellow rounded-xl flex items-center justify-center text-premier-dark font-bold text-xl group-hover:scale-110 transition"><i class="fas fa-headset"></i></div><div><h3 class="font-black text-lg uppercase mb-1 text-white">Suporte Humano</h3><p class="text-blue-100/70 text-xs leading-relaxed">Time local para sinistros e dúvidas.</p></div></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition group h-full"><div class="w-12 h-12 bg-premier-yellow rounded-xl flex items-center justify-center text-premier-dark font-bold text-xl group-hover:scale-110 transition"><i class="fas fa-car"></i></div><div><h3 class="font-black text-lg uppercase mb-1 text-white">Carro Reserva VIP</h3><p class="text-blue-100/70 text-xs leading-relaxed">Mobilidade garantida com diárias estendidas.</p></div></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition group h-full"><div class="w-12 h-12 bg-premier-yellow rounded-xl flex items-center justify-center text-premier-dark font-bold text-xl group-hover:scale-100 transition"><i class="fas fa-shield-alt"></i></div><div><h3 class="font-black text-lg uppercase mb-1 text-white">Proteção Total</h3><p class="text-blue-100/70 text-xs leading-relaxed">Roubo, furto, colisão e incêndio.</p></div></div>
+                <div class="flex flex-col gap-4 bg-white/5 p-6 rounded-3xl border border-white/5 hover:bg-white/10 transition group h-full"><div class="w-12 h-12 bg-premier-yellow rounded-xl flex items-center justify-center text-premier-dark font-bold text-xl group-hover:scale-110 transition"><i class="fas fa-tags"></i></div><div><h3 class="font-black text-lg uppercase mb-1 text-white">Clube de Benefícios</h3><p class="text-blue-100/70 text-xs leading-relaxed">Descontos exclusivos em parceiros.</p></div></div>
+            </div>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-slate" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,128L48,154.7C96,181,192,235,288,234.7C384,235,480,181,576,176C672,171,768,213,864,213.3C960,213,1056,171,1152,144C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
+
+    <section id="fluxo" class="section-relative section-padding bg-slate-50">
         <div class="safe-container">
-            <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Cotação 100% Sem Compromisso</h2>
-            
-            <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-12 text-blue-200 font-bold text-base md:text-xl">
-                <span class="flex items-center gap-3"><i class="fas fa-stopwatch text-premier-yellow text-2xl"></i> Rápido: Menos de 2 min</span>
-                <span class="flex items-center gap-3"><i class="fas fa-lock text-premier-yellow text-2xl"></i> Dados 100% Seguros</span>
-                <span class="flex items-center gap-3"><i class="fas fa-piggy-bank text-premier-yellow text-2xl"></i> Economia Garantida</span>
+            <h2 class="text-3xl md:text-5xl font-black text-center text-premier-dark mb-12">Do WhatsApp à Proteção</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative items-center">
+                <div class="bg-white p-8 rounded-[2rem] shadow-lg border-b-4 border-green-500 flex flex-col items-center text-center hover:-translate-y-2 transition duration-300" data-aos="fade-right">
+                    <div class="w-16 h-16 mb-4 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-3xl shadow-sm"><i class="fab fa-whatsapp"></i></div>
+                    <h3 class="text-lg font-black text-premier-dark mb-2">1. Chamou no Zap</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Envie a foto da nota fiscal. Nosso time inicia a busca imediatamente.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-lg border-b-4 border-blue-600 flex flex-col items-center text-center hover:-translate-y-2 transition duration-300" data-aos="fade-up">
+                    <div class="w-16 h-16 mb-4 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl shadow-sm"><i class="fas fa-search-dollar"></i></div>
+                    <h3 class="text-lg font-black text-premier-dark mb-2">2. Busca Inteligente</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Varremos 15 seguradoras para encontrar o menor preço e melhor cobertura.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-lg border-b-4 border-yellow-400 flex flex-col items-center text-center hover:-translate-y-2 transition duration-300" data-aos="fade-left">
+                    <div class="w-16 h-16 mb-4 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center text-3xl shadow-sm"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="text-lg font-black text-premier-dark mb-2">3. Fechou e Levou</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Apólice emitida. Você sai da loja 100% protegido e tranquilo.</p>
+                </div>
             </div>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,144C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
 
-            <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." class="btn-default btn-whatsapp btn-call-to-action text-xl px-16 py-6 shadow-2xl shadow-green-500/30 w-full md:w-auto">
-                <i class="fab fa-whatsapp text-3xl"></i> QUERO MINHA COTAÇÃO GRÁTIS
-            </a>
-            
+    <section class="section-relative section-padding bg-white">
+        <div class="safe-container text-center">
+            <h2 class="text-3xl md:text-4xl font-black text-premier-dark mb-4">Proteção 360º para sua Família</h2>
+            <p class="text-slate-600 text-lg mb-10 max-w-3xl mx-auto leading-relaxed">Muito além do básico. Coberturas completas para você não ter surpresas.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-users text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Danos a Terceiros</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-heartbeat text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Acidentes Pessoais</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-home text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Assist. Residencial</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-layer-group text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Vidros Completos</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-truck-pickup text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Guincho 24h</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-mask text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Roubo e Furto</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-cloud-showers-heavy text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Fenômenos Naturais</h4></div>
+                <div class="bg-blue-50 p-6 rounded-3xl hover:-translate-y-1 transition duration-300 border border-transparent hover:border-blue-200"><i class="fas fa-car-side text-premier-dark text-3xl mb-3"></i><h4 class="font-bold text-premier-dark text-sm md:text-base">Carro Reserva</h4></div>
+            </div>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,234.7C672,245,768,203,864,186.7C960,171,1056,181,1152,197.3C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
+
+    <section class="section-relative section-padding bg-white overflow-hidden">
+        <div class="safe-container text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-black text-premier-dark">Clientes Reais, Economia Real</h2>
+            <div class="inline-flex items-center gap-2 mt-4"><div class="flex text-yellow-400 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><span class="text-slate-700 font-bold text-sm">4.9/5 em Avaliações</span></div>
+        </div>
+        <div class="marquee-wrapper mb-6">
+            <div class="marquee-track marquee-left">
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Atendimento impecável! Resolveram tudo pelo WhatsApp em minutos."</p><p class="font-bold text-premier-dark text-xs mt-4">- Carlos Eduardo</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Economizei 30% comparado à concessionária. Valeu a pena."</p><p class="font-bold text-premier-dark text-xs mt-4">- Fernanda Lima</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Vistoria na garagem, sem burocracia. Recomendo demais."</p><p class="font-bold text-premier-dark text-xs mt-4">- Roberto Dias</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Atendimento impecável! Resolveram tudo pelo WhatsApp em minutos."</p><p class="font-bold text-premier-dark text-xs mt-4">- Carlos Eduardo</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Economizei 30% comparado à concessionária. Valeu a pena."</p><p class="font-bold text-premier-dark text-xs mt-4">- Fernanda Lima</p></div>
+            </div>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track marquee-right">
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Segurança total para minha família. Suporte nota 10!"</p><p class="font-bold text-premier-dark text-xs mt-4">- Amanda S.</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Precisei do guincho de madrugada e chegaram rápido."</p><p class="font-bold text-premier-dark text-xs mt-4">- Paulo H.</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Saí da loja com o carro já segurado. Sensação de paz."</p><p class="font-bold text-premier-dark text-xs mt-4">- Beatriz F.</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Segurança total para minha família. Suporte nota 10!"</p><p class="font-bold text-premier-dark text-xs mt-4">- Amanda S.</p></div>
+                <div class="testimonial-card bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm"><div class="flex text-premier-yellow mb-3 text-xs gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-slate-600 text-sm italic">"Precisei do guincho de madrugada e chegaram rápido."</p><p class="font-bold text-premier-dark text-xs mt-4">- Paulo H.</p></div>
+            </div>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-yellow" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
+
+    <section class="section-relative bg-premier-yellow section-padding px-5 text-center">
+        <div class="safe-container relative z-10 pt-6">
+            <h2 class="text-4xl md:text-6xl font-black text-premier-dark mb-4 uppercase leading-tight">CONDIÇÕES ESPECIAIS 0KM</h2>
+            <p class="text-lg font-bold text-premier-dark/80 mb-8 max-w-4xl mx-auto italic">Resgate seus benefícios exclusivos para veículos recém-adquiridos.</p>
+            <div class="max-w-md mx-auto mb-10 bg-white/20 p-4 rounded-xl border border-premier-dark/10 backdrop-blur-sm">
+                <div class="flex justify-between text-xs font-bold text-premier-dark mb-2 uppercase"><span>Lote Promocional</span><span class="text-red-600 animate-pulse font-black">87% VENDIDO</span></div>
+                <div class="w-full bg-white/40 h-3 rounded-full overflow-hidden"><div class="bg-red-600 h-full w-[87%] animate-pulse rounded-full shadow-lg"></div></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-3xl shadow-xl border-b-4 border-premier-dark hover:-translate-y-2 transition duration-300 group"><i class="fas fa-rocket text-premier-dark text-4xl mb-3 group-hover:scale-110 transition"></i><h4 class="font-black text-lg uppercase mb-1">Ativação Flash</h4><p class="text-xs text-slate-700">Seguro ativo antes de sair da loja.</p></div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border-b-4 border-premier-dark hover:-translate-y-2 transition duration-300 group"><i class="fas fa-search-dollar text-premier-dark text-4xl mb-3 group-hover:scale-110 transition"></i><h4 class="font-black text-lg uppercase mb-1">Melhor Custo</h4><p class="text-xs text-slate-700">Comparamos 15 seguradoras.</p></div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border-b-4 border-premier-dark hover:-translate-y-2 transition duration-300 group"><i class="fas fa-gift text-premier-dark text-4xl mb-3 group-hover:scale-110 transition"></i><h4 class="font-black text-lg uppercase mb-1">Bônus Exclusivos</h4><p class="text-xs text-slate-700">Descontos em franquia e serviços.</p></div>
+                <div class="bg-white p-6 rounded-3xl shadow-xl border-b-4 border-premier-dark hover:-translate-y-2 transition duration-300 group"><i class="fas fa-star text-premier-dark text-4xl mb-3 group-hover:scale-110 transition"></i><h4 class="font-black text-lg uppercase mb-1">Vistoria VIP</h4><p class="text-xs text-slate-700">Vamos até você, onde estiver.</p></div>
+            </div>
+            <a href="https://wa.me/5574999008507" class="btn-default btn-premier-dark bg-premier-dark text-white hover:bg-black text-lg px-12 py-5 shadow-2xl hover:scale-105 transition-transform">RESGATAR MEUS BÔNUS AGORA</a>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-white" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,192L48,202.7C96,213,192,235,288,213.3C384,192,480,128,576,122.7C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
+
+    <section class="section-padding bg-white section-relative">
+        <div class="safe-container pt-6" data-aos="fade-up">
+            <div class="text-center mb-12">
+                <span class="bg-slate-100 text-slate-600 font-bold px-4 py-1 rounded-full text-xs uppercase tracking-widest inline-block mb-4 border border-slate-200">⚔️ BATALHA DE BENEFÍCIOS</span>
+                <h2 class="text-3xl md:text-5xl font-black text-premier-dark">Concessionária vs. Premier: <br><span class="text-green-600">A Escolha Lógica</span></h2>
+            </div>
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 max-w-5xl mx-auto">
+                <div class="hidden md:grid grid-cols-3 bg-premier-dark text-white font-bold text-xl"><div class="p-6">Aspecto</div><div class="p-6 text-center bg-gray-800">Concessionária</div><div class="p-6 text-center bg-premier-yellow text-premier-dark">Premier</div></div>
+                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-6 md:p-0"><div class="md:hidden font-bold text-xl text-premier-dark mb-2">Preço Final</div><div class="hidden md:flex items-center p-6 font-bold text-slate-700">Preço Final</div><div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0"><span class="md:hidden text-gray-500 font-semibold">Loja:</span><span class="text-red-600 font-bold bg-red-50 px-3 py-1 rounded-lg">Caro (+ Juros)</span></div><div class="flex justify-between md:justify-center items-center md:p-6"><span class="md:hidden text-premier-dark font-bold">Premier:</span><span class="font-black text-green-700 bg-green-50 px-3 py-1 rounded-lg flex items-center gap-2"><i class="fas fa-arrow-down"></i> Até 35% OFF</span></div></div>
+                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-6 md:p-0"><div class="md:hidden font-bold text-xl text-premier-dark mb-2 mt-2 border-t pt-2">Ativação</div><div class="hidden md:flex items-center p-6 font-bold text-slate-700">Ativação</div><div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0"><span class="md:hidden text-gray-500 font-semibold">Loja:</span><span class="text-slate-500 font-medium">Burocrática</span></div><div class="flex justify-between md:justify-center items-center md:p-6"><span class="md:hidden text-premier-dark font-bold">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-3 py-1 rounded-lg">Imediata via NF</span></div></div>
+                <div class="flex flex-col md:grid md:grid-cols-3 p-6 md:p-0"><div class="md:hidden font-bold text-xl text-premier-dark mb-2 mt-2 border-t pt-2">Variedade</div><div class="hidden md:flex items-center p-6 font-bold text-slate-700">Variedade</div><div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0"><span class="md:hidden text-gray-500 font-semibold">Loja:</span><span class="text-slate-500 font-medium">1 Opção</span></div><div class="flex justify-between md:justify-center items-center md:p-6"><span class="md:hidden text-premier-dark font-bold">Premier:</span><span class="font-bold text-premier-dark bg-yellow-50 px-3 py-1 rounded-lg">Multimarcas</span></div></div>
+            </div>
+        </div>
+        <div class="wave-container wave-bottom"><svg class="fill-dark" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,96L48,122.7C96,149,192,203,288,208C384,213,480,171,576,138.7C672,107,768,85,864,106.7C960,128,1056,192,1152,202.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    </section>
+
+    <section class="section-relative pt-24 pb-24 px-5 bg-premier-dark text-white text-center">
+        <div class="safe-container pt-6">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Cotação 100% Sem Compromisso</h2>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 text-blue-200 font-bold text-sm md:text-lg">
+                <span class="flex items-center gap-2"><i class="fas fa-stopwatch text-premier-yellow text-xl"></i> Menos de 2 min</span>
+                <span class="flex items-center gap-2"><i class="fas fa-lock text-premier-yellow text-xl"></i> Dados 100% Seguros</span>
+                <span class="flex items-center gap-2"><i class="fas fa-piggy-bank text-premier-yellow text-xl"></i> Economia Garantida</span>
+            </div>
+            <a href="https://wa.me/5574999008507" class="btn-default btn-whatsapp btn-call-to-action text-xl px-16 py-6 shadow-2xl shadow-green-500/30 w-full md:w-auto"><i class="fab fa-whatsapp text-3xl"></i> QUERO MINHA COTAÇÃO GRÁTIS</a>
             <p class="mt-8 text-sm text-slate-400 opacity-80">Prometemos não enviar spam. Você falará com um especialista real.</p>
         </div>
     </section>
@@ -485,84 +398,87 @@
         <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-black/40"></div>
         <div class="safe-container relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
             <div class="w-full md:w-1/2 text-white" data-aos="fade-right">
-                <span class="inline-block py-1 px-3 rounded-full bg-premier-yellow/20 border border-premier-yellow text-premier-yellow font-bold text-xs mb-4 uppercase tracking-widest backdrop-blur-sm">
-                    Atendimento Presencial
-                </span>
+                <span class="inline-block py-1 px-3 rounded-full bg-premier-yellow/20 border border-premier-yellow text-premier-yellow font-bold text-xs mb-4 uppercase tracking-widest backdrop-blur-sm">Atendimento Presencial</span>
                 <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Visite Nossa Sede</h2>
-                <p class="text-lg text-slate-200 mb-8 leading-relaxed">
-                    Prefere conversar olho no olho? Venha tomar um café conosco. Estamos localizados no coração de Recife, prontos para te receber com estacionamento e conforto.
-                </p>
-                <a href="https://maps.google.com/?q=Av.+Manoel+Borba,+423+-+Boa+Vista,+Recife+-+PE,+50070-000" target="_blank" 
-                   class="inline-flex items-center gap-3 btn-default bg-white text-premier-dark hover:bg-premier-yellow transition shadow-xl font-bold w-full md:w-auto justify-center">
-                    <i class="fas fa-location-arrow"></i> TRAÇAR ROTA
-                </a>
+                <p class="text-lg text-slate-200 mb-8 leading-relaxed">Prefere conversar olho no olho? Venha tomar um café conosco. Estamos localizados no coração de Recife, prontos para te receber com estacionamento e conforto.</p>
+                <a href="https://maps.google.com/?q=Av.+Manoel+Borba,+423+-+Boa+Vista,+Recife+-+PE,+50070-000" target="_blank" class="inline-flex items-center gap-3 btn-default bg-white text-premier-dark hover:bg-premier-yellow transition shadow-xl font-bold w-full md:w-auto justify-center"><i class="fas fa-location-arrow"></i> TRAÇAR ROTA</a>
             </div>
             <div class="w-full md:w-1/3 flex flex-col gap-4" data-aos="fade-left">
-                <div class="group bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl flex items-center gap-5 hover:bg-white hover:border-white transition-all duration-300 cursor-default hover:-translate-y-1 shadow-lg">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-full flex items-center justify-center text-premier-dark text-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white group-hover:text-premier-dark text-lg uppercase tracking-wide">Endereço</h3>
-                        <p class="text-slate-300 group-hover:text-slate-600 text-sm">Av. Manoel Borba, 423<br>Boa Vista, Recife - PE</p>
-                    </div>
-                </div>
-                <a href="tel:+558130818181" class="group bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl flex items-center gap-5 hover:bg-white hover:border-white transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                    <div class="w-14 h-14 bg-premier-yellow rounded-full flex items-center justify-center text-premier-dark text-xl shadow-lg group-hover:scale-110 transition-transform">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white group-hover:text-premier-dark text-lg uppercase tracking-wide">Ligue Agora</h3>
-                        <p class="text-slate-300 group-hover:text-slate-600 text-sm font-mono">+55 81 3081-8181</p>
-                    </div>
-                </a>
+                <div class="group bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl flex items-center gap-5 hover:bg-white hover:border-white transition-all duration-300 cursor-default hover:-translate-y-1 shadow-lg"><div class="w-14 h-14 bg-premier-yellow rounded-full flex items-center justify-center text-premier-dark text-xl shadow-lg group-hover:scale-110 transition-transform"><i class="fas fa-map-marker-alt"></i></div><div><h3 class="font-bold text-white group-hover:text-premier-dark text-lg uppercase tracking-wide">Endereço</h3><p class="text-slate-300 group-hover:text-slate-600 text-sm">Av. Manoel Borba, 423<br>Boa Vista, Recife - PE</p></div></div>
+                <a href="tel:+558130818181" class="group bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl flex items-center gap-5 hover:bg-white hover:border-white transition-all duration-300 hover:-translate-y-1 shadow-lg"><div class="w-14 h-14 bg-premier-yellow rounded-full flex items-center justify-center text-premier-dark text-xl shadow-lg group-hover:scale-110 transition-transform"><i class="fas fa-phone"></i></div><div><h3 class="font-bold text-white group-hover:text-premier-dark text-lg uppercase tracking-wide">Ligue Agora</h3><p class="text-slate-300 group-hover:text-slate-600 text-sm font-mono">+55 81 3081-8181</p></div></a>
             </div>
         </div>
     </section>
 
     <footer class="bg-slate-50 py-12 px-5 border-t border-slate-200 text-center">
         <div class="safe-container flex flex-col items-center">
-             <img src="logopremier.png" alt="Premier Seguros" class="h-10 opacity-60 mb-8 grayscale hover:grayscale-0 transition" onerror="this.style.display='none'">
-             
+             <div class="text-3xl font-black opacity-40 mb-8 grayscale hover:grayscale-0 transition duration-500">PREMIER.</div>
              <div class="flex justify-center gap-6 mb-8">
-                <a href="https://instagram.com/sigapremier" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-instagram text-xl group-hover:scale-110 transition"></i></a>
-                <a href="https://web.facebook.com/PremierCorretora" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-facebook-f text-xl group-hover:scale-110 transition"></i></a>
-                <a href="https://br.linkedin.com/company/premier-seguros" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-linkedin-in text-xl group-hover:scale-110 transition"></i></a>
-                 <a href="https://g.co/kgs/cgBCSh4" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-google text-xl group-hover:scale-110 transition"></i></a>
+                <a href="#" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-instagram text-xl group-hover:scale-110 transition"></i></a>
+                <a href="#" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-facebook-f text-xl group-hover:scale-110 transition"></i></a>
+                <a href="#" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group"><i class="fab fa-linkedin-in text-xl group-hover:scale-110 transition"></i></a>
             </div>
-
-            <p class="text-xs text-slate-400 border-t border-slate-200 pt-8 w-full uppercase tracking-wider">© 2026 Premier Seguros</p>
+            <p class="text-xs text-slate-400 border-t border-slate-200 pt-8 w-full uppercase tracking-wider">© 2026 Premier Seguros. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true, offset: 50 });
-        const counters = document.querySelectorAll('.counter, .counter-float');
-        const speed = 50;
         const animateCounters = () => {
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const isFloat = counter.classList.contains('counter-float');
-                    const inc = target / speed;
+            document.querySelectorAll('.counter, .counter-float').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const isFloat = counter.classList.contains('counter-float');
+                let count = 0;
+                const inc = target / 50; 
+                const update = () => {
+                    count += inc;
                     if (count < target) {
-                        counter.innerText = isFloat ? (count + inc).toFixed(1) : Math.ceil(count + inc);
-                        setTimeout(updateCount, 30);
+                        counter.innerText = isFloat ? count.toFixed(1) : Math.ceil(count);
+                        requestAnimationFrame(update);
                     } else {
                         counter.innerText = target;
                     }
                 };
-                updateCount();
+                update();
             });
         };
-        let observer = new IntersectionObserver((entries, observer) => {
+        new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) { animateCounters(); observer.unobserve(entry.target); }
             });
-        }, { root: null, rootMargin: '0px', threshold: 0.5 });
-        observer.observe(document.querySelector('#stats-section'));
+        }, { threshold: 0.5 }).observe(document.querySelector('#stats-section'));
+
+        function startTimer(duration, displays) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(() => {
+                hours = String(parseInt(timer / 3600, 10)).padStart(2, '0');
+                minutes = String(parseInt((timer % 3600) / 60, 10)).padStart(2, '0');
+                seconds = String(parseInt(timer % 60, 10)).padStart(2, '0');
+                displays.forEach(d => { if(d) d.textContent = `${hours}:${minutes}:${seconds}` });
+                if (--timer < 0) timer = duration;
+            }, 1000);
+        }
+        startTimer(5 * 60 * 60, [document.querySelector('#mobile-timer'), document.querySelector('#header-timer')]);
+
+        const toasts = [
+            { name: "Ricardo", city: "Recife", car: "Compass" },
+            { name: "Ana", city: "Olinda", car: "Creta" },
+            { name: "Carlos", city: "Jaboatão", car: "T-Cross" },
+            { name: "Mariana", city: "Caruaru", car: "Nivus" },
+            { name: "João", city: "Recife", car: "Renegade" }
+        ];
+        function showToast() {
+            const toast = document.getElementById('sales-toast');
+            if(!toast) return;
+            const data = toasts[Math.floor(Math.random() * toasts.length)];
+            const msgEl = document.getElementById('toast-message');
+            if(msgEl) msgEl.textContent = `${data.name} de ${data.city} cotou um ${data.car}.`;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+            setTimeout(showToast, Math.random() * (12000 - 7000) + 7000);
+        }
+        setTimeout(showToast, 3000);
     </script>
 </body>
 </html>
