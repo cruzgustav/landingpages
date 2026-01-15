@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Especialistas em Seguro 0km e Primeiro Seguro. Cobertura superior à concessionária com até 35% de economia. Premier Seguros.">
+    <meta name="theme-color" content="#ffffff">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Premier Seguros | 0km com Preço Justo">
+    <meta property="og:description" content="Proteção de elite pagando menos que na concessionária. Cote agora.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Premier+Seguros+0km">
+
+    <title>Premier Seguros | Proteção de Elite, Preço Justo</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+
+        /* Animações */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .animate-pulse-green { animation: pulse-green 2s infinite; }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+            15% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+            30% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+            45% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+            60% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+        }
+        .btn-call-to-action { animation: heartbeat 3s infinite; }
+        
+        /* Cores */
+        .bg-premier-dark { background-color: #001b3a; }
+        .bg-premier-yellow { background-color: #ffcc00; }
+        .text-premier-yellow { color: #ffcc00; }
+        .text-premier-dark { color: #001b3a; }
+        
+        .hero-gradient { background: linear-gradient(135deg, #001b3a 0%, #00284d 100%); }
+        
+        /* Carrossel de Logos Otimizado */
+        .carousel-container { overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+        .carousel-track { display: flex; animation: scroll 40s linear infinite; width: max-content; align-items: center; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        .carousel-logo {
+            height: 45px;
+            width: auto;
+            margin: 0 2rem;
+            /* Transforma logo colorida em branca para fundo escuro */
+            filter: grayscale(100%) brightness(0) invert(1);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            object-fit: contain;
+        }
+        /* Mobile */
+        @media (max-width: 640px) {
+            .carousel-logo { height: 30px; margin: 0 1rem; }
+        }
+        
+        /* Efeito Hover: Restaura cor original */
+        .carousel-container:hover .carousel-logo { filter: grayscale(0%) brightness(1) invert(0); opacity: 1; }
+
+        /* Botões */
+        .btn-default {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+            padding: 1rem 2.5rem; border-radius: 9999px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-whatsapp { background: linear-gradient(to bottom right, #16a34a, #15803d); color: white; border: 1px solid #166534; }
+        .btn-whatsapp:hover { background: linear-gradient(to bottom right, #15803d, #14532d); }
+        .btn-outline { background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; backdrop-filter: blur(4px); }
+        .btn-outline:hover { background-color: rgba(255,255,255,0.2); }
+
+        /* Ajustes Mobile */
+        @media (max-width: 640px) {
+            h1 { font-size: 2rem !important; line-height: 1.2 !important; }
+            h2 { font-size: 1.75rem !important; }
+            .btn-default { width: 100%; padding: 1rem; font-size: 0.95rem; }
+            section { padding-left: 1.25rem; padding-right: 1.25rem; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-yellow-200 selection:text-premier-dark overflow-x-hidden">
+
+    <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." 
+       class="fixed bottom-6 right-6 z-50 bg-green-600 text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-2xl animate-pulse-green hover:scale-110 transition-all duration-300 group"
+       aria-label="Fale no WhatsApp">
+        <i class="fab fa-whatsapp group-hover:rotate-12 transition-transform"></i>
+    </a>
+
+    <header class="bg-white text-premier-dark relative z-40 border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+            <div class="flex items-center gap-2">
+                <img src="logopremier.png" alt="Premier Seguros" class="h-8 md:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <div class="hidden text-xl md:text-2xl font-black tracking-tighter text-premier-dark">PREMIER<span class="text-premier-yellow">.</span></div>
+            </div>
+            <div class="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-[10px] font-bold uppercase tracking-wide text-green-700">Concierge Online</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-gradient text-white py-12 px-5 md:py-28 md:px-8 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
+            <i class="fas fa-shield-alt absolute -top-10 -left-10 text-9xl"></i>
+            <i class="fas fa-car absolute bottom-10 right-10 text-[12rem]"></i>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10" data-aos="fade-up">
+            
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6 animate-pulse">
+                <i class="fas fa-star text-premier-yellow text-xs"></i>
+                <span class="text-[11px] md:text-xs font-bold uppercase tracking-widest text-blue-50">
+                    Proteção de Elite • Preço Justo
+                </span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 uppercase tracking-tight drop-shadow-lg">
+                Seu carro novo merece<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Proteção de Elite.</span>
+            </h1>
+            
+            <p class="text-base md:text-2xl font-medium mb-10 text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
+                Cobertura superior à da concessionária, custando <span class="text-premier-yellow font-bold">até 35% menos</span>. 
+                Garanta a segurança do seu 0km ou primeiro seguro antes mesmo de tirar o carro da loja.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-6">
+                <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." 
+                   class="btn-default btn-whatsapp btn-call-to-action shadow-lg shadow-green-900/50">
+                    <i class="fab fa-whatsapp text-2xl"></i> COTAR AGORA
+                </a>
+                <a href="#fluxo" class="btn-default btn-outline text-sm md:text-base py-3 md:py-4">
+                    COMO FUNCIONA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-6 bg-premier-dark border-b border-white/10">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/zurich-seguros-logo.png" class="carousel-logo" alt="Zurich">
+                <img src="https://logodownload.org/wp-content/uploads/2015/02/unimed-logo-8.png" class="carousel-logo" alt="Unimed">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/tokio-marine-seguradora-logo.png" class="carousel-logo" alt="Tokio Marine">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/sulamerica-logo.png" class="carousel-logo" alt="SulAmérica">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/porto-seguro-logo.png" class="carousel-logo" alt="Porto Seguro">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/metlife-logo.png" class="carousel-logo" alt="MetLife">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/mapfre-logo-1.png" class="carousel-logo" alt="Mapfre">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/liberty-seguros-logo.png" class="carousel-logo" alt="Liberty">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/itau-logo-1.png" class="carousel-logo" alt="Itaú">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/hdi-seguros-logo.png" class="carousel-logo" alt="HDI">
+                <img src="https://logodownload.org/wp-content/uploads/2019/12/hapvida-logo-1536x355.png" class="carousel-logo" alt="Hapvida">
+                <img src="https://logodownload.org/wp-content/uploads/2014/02/bradesco-seguros-logo-2.png" class="carousel-logo" alt="Bradesco">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/azul-seguros-logo.png" class="carousel-logo" alt="Azul">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/allianz-seguros-logo.png" class="carousel-logo" alt="Allianz">
+                <img src="https://logodownload.org/wp-content/uploads/2014/09/amil-logo-2.png" class="carousel-logo" alt="Amil">
+
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/zurich-seguros-logo.png" class="carousel-logo" alt="Zurich">
+                <img src="https://logodownload.org/wp-content/uploads/2015/02/unimed-logo-8.png" class="carousel-logo" alt="Unimed">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/tokio-marine-seguradora-logo.png" class="carousel-logo" alt="Tokio Marine">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/sulamerica-logo.png" class="carousel-logo" alt="SulAmérica">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/porto-seguro-logo.png" class="carousel-logo" alt="Porto Seguro">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/metlife-logo.png" class="carousel-logo" alt="MetLife">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/mapfre-logo-1.png" class="carousel-logo" alt="Mapfre">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/liberty-seguros-logo.png" class="carousel-logo" alt="Liberty">
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/itau-logo-1.png" class="carousel-logo" alt="Itaú">
+                <img src="https://logodownload.org/wp-content/uploads/2019/09/allianz-seguros-logo.png" class="carousel-logo" alt="Allianz">
+            </div>
+        </div>
+    </div>
+
+    <section id="stats-section" class="py-12 px-5 md:py-20 bg-white text-center">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up">
+            <h2 class="text-2xl md:text-4xl font-black text-premier-dark mb-4">Referência Absoluta</h2>
+            <p class="text-base md:text-lg text-slate-600 mb-10 max-w-2xl mx-auto font-medium">
+                Mais de <strong>20 anos</strong> entregando segurança real e solidez.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-5xl md:text-7xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1">
+                        <span class="counter" data-target="250">0</span><span class="text-4xl text-blue-600">+</span>
+                    </div>
+                    <div class="text-xs uppercase font-black text-slate-400 tracking-widest">Atendimentos Mensais</div>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-5xl md:text-7xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1">
+                        <span class="counter-float" data-target="8.5">0</span><span class="text-4xl text-blue-600">K</span>
+                    </div>
+                    <div class="text-xs uppercase font-black text-slate-400 tracking-widest">Clientes Segurados</div>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="text-5xl md:text-7xl font-black text-premier-dark mb-2 flex justify-center items-center gap-1">
+                        <span class="counter" data-target="20">0</span><span class="text-4xl text-blue-600">+</span>
+                    </div>
+                    <div class="text-xs uppercase font-black text-slate-400 tracking-widest">Anos de História</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fluxo" class="py-16 px-5 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-4xl font-black text-center text-premier-dark mb-12">Do WhatsApp à Proteção</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative items-center">
+                <div class="hidden md:block absolute top-1/2 left-[30%] w-[10%] h-1 bg-gradient-to-r from-green-200 to-blue-200"></div>
+                <div class="hidden md:block absolute top-1/2 right-[30%] w-[10%] h-1 bg-gradient-to-r from-blue-200 to-yellow-200"></div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-green-500 flex flex-col items-center text-center" data-aos="fade-right">
+                    <div class="w-16 h-16 mb-4 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-premier-dark mb-2">Chamou no Zap</h3>
+                    <p class="text-slate-600 text-sm">Mandou a foto da nota fiscal? Já começamos a trabalhar.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-blue-600 flex flex-col items-center text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 mb-4 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-premier-dark mb-2">Cotou em 15 Cias</h3>
+                    <p class="text-slate-600 text-sm">Nós varremos o mercado e te entregamos o menor preço.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg border-b-4 border-yellow-400 flex flex-col items-center text-center" data-aos="fade-left">
+                    <div class="w-16 h-16 mb-4 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center text-3xl shadow-sm">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-premier-dark mb-2">Fechou e Levou</h3>
+                    <p class="text-slate-600 text-sm">Ativação instantânea. Você sai da loja protegido e feliz.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-slate-400 text-sm italic"><i class="fas fa-bolt text-yellow-500 mr-1"></i> Processo médio de 15 minutos via WhatsApp</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-white">
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+            <h2 class="text-2xl md:text-4xl font-black text-premier-dark mb-16 text-center">Por Que Somos a Melhor Escolha</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 group hover:-translate-y-2 transition duration-300">
+                    <i class="fas fa-handshake-simple text-premier-yellow text-4xl mb-6"></i>
+                    <h3 class="text-xl font-black mb-4 text-premier-dark">Independência Total</h3>
+                    <p class="text-slate-600">Não temos "rabo preso" com seguradora. Defendemos o seu interesse, não o da companhia.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 group hover:-translate-y-2 transition duration-300">
+                    <i class="fas fa-bolt text-premier-yellow text-4xl mb-6"></i>
+                    <h3 class="text-xl font-black mb-4 text-premier-dark">Zero Risco</h3>
+                    <p class="text-slate-600">Seguro ativo no exato momento da entrega das chaves. Zero risco de rodar desprotegido.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 group hover:-translate-y-2 transition duration-300">
+                    <i class="fas fa-headset text-premier-yellow text-4xl mb-6"></i>
+                    <h3 class="text-xl font-black mb-4 text-premier-dark">Pós-Venda Humano</h3>
+                    <p class="text-slate-600">Nada de robôs. Uma equipe local dedicada para sinistro, vistoria e renovação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-slate-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-red-600 font-bold tracking-widest uppercase text-xs bg-red-50 px-4 py-1 rounded-full">Alerta ao Consumidor</span>
+                <h2 class="text-2xl md:text-4xl font-black text-premier-dark mt-4">
+                    O que a concessionária <span class="text-red-600 underline decoration-4 underline-offset-4">não te conta</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up">
+                    <i class="fas fa-hand-holding-dollar text-red-500 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-lg text-premier-dark mb-1">Superfaturamento Oculto</h4>
+                        <p class="text-sm text-slate-600">Você paga juros bancários sobre o valor do seguro sem perceber.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-lock text-red-500 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-lg text-premier-dark mb-1">Monopólio de Opção</h4>
+                        <p class="text-sm text-slate-600">Te oferecem apenas a seguradora parceira da loja. Sem liberdade.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-percentage text-red-500 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-lg text-premier-dark mb-1">Dívida Desnecessária</h4>
+                        <p class="text-sm text-slate-600">Financiar o seguro gera uma bola de neve de juros compostos.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm border-l-4 border-red-500" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-ban text-red-500 text-3xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-lg text-premier-dark mb-1">Venda Casada (Ilegal)</h4>
+                        <p class="text-sm text-slate-600">Dizer que a garantia do carro depende do seguro da loja é mentira.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-premier-yellow py-16 px-5 text-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black text-premier-dark mb-6 uppercase">Condições Especiais 0km</h2>
+            <p class="text-lg font-bold text-premier-dark/80 mb-12 max-w-4xl mx-auto italic">
+                Resgate seus benefícios exclusivos para veículos recém-adquiridos.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark">
+                    <i class="fas fa-rocket text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-black text-lg uppercase mb-2">Ativação Flash</h4>
+                    <p class="text-sm text-slate-700">Seguro ativo antes de sair da concessionária.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark">
+                    <i class="fas fa-search-dollar text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-black text-lg uppercase mb-2">Melhor Custo</h4>
+                    <p class="text-sm text-slate-700">Comparamos 15 seguradoras para você.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark">
+                    <i class="fas fa-gift text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-black text-lg uppercase mb-2">Bônus Exclusivos</h4>
+                    <p class="text-sm text-slate-700">Descontos em franquia e serviços extras.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-premier-dark">
+                    <i class="fas fa-star text-premier-dark text-4xl mb-4"></i>
+                    <h4 class="font-black text-lg uppercase mb-2">Vistoria VIP</h4>
+                    <p class="text-sm text-slate-700">Vamos até você, onde estiver.</p>
+                </div>
+            </div>
+
+            <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." 
+               class="btn-default btn-premier-dark bg-premier-dark text-white hover:bg-black text-lg px-10 py-5">
+                RESGATAR MEU BÔNUS AGORA
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-premier-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-premier-yellow rounded-full mix-blend-overlay filter blur-[100px] opacity-10 animate-pulse"></div>
+        <div class="max-w-5xl mx-auto relative z-10" data-aos="fade-up">
+            <h2 class="text-3xl md:text-5xl font-black text-premier-yellow mb-16 text-center uppercase">Excelência Premier</h2>
+            <div class="space-y-6">
+                <div class="flex flex-col md:flex-row gap-6 bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition">
+                    <i class="fas fa-bolt text-premier-yellow text-4xl"></i>
+                    <div>
+                        <h3 class="font-black text-xl uppercase mb-2 text-white">Ativação Imediata via NF</h3>
+                        <p class="text-blue-100/80">Sua segurança é ativada no exato momento da entrega do veículo, sem burocracia.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-6 bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition">
+                    <i class="fas fa-concierge-bell text-premier-yellow text-4xl"></i>
+                    <div>
+                        <h3 class="font-black text-xl uppercase mb-2 text-white">Vistoria VIP Concierge</h3>
+                        <p class="text-blue-100/80">Nosso concierge realiza a inspeção técnica onde você estiver: em casa, no trabalho ou na concessionária.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-6 bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition">
+                    <i class="fas fa-car-side text-premier-yellow text-4xl"></i>
+                    <div>
+                        <h3 class="font-black text-xl uppercase mb-2 text-white">Assistência Premium 24h</h3>
+                        <p class="text-blue-100/80">Muito além do guincho. Carro reserva de categoria superior, chaveiro e suporte completo para garantir que você nunca fique na mão.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-white">
+        <div class="max-w-3xl mx-auto" data-aos="fade-up">
+            <h2 class="text-2xl md:text-3xl font-black text-center text-premier-dark mb-12">Dúvidas Comuns</h2>
+            <div class="space-y-4">
+                <details class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm group">
+                    <summary class="font-bold text-lg cursor-pointer flex justify-between text-premier-dark">
+                        <span>Quanto tempo leva para ativar?</span>
+                        <i class="fas fa-chevron-down text-premier-yellow group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-slate-600 pt-4 border-t border-slate-100">Imediato! Com a Nota Fiscal, emitimos a proposta e você já sai segurado em questão de minutos.</p>
+                </details>
+                <details class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm group">
+                    <summary class="font-bold text-lg cursor-pointer flex justify-between text-premier-dark">
+                        <span>É mais caro que na concessionária?</span>
+                        <i class="fas fa-chevron-down text-premier-yellow group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-slate-600 pt-4 border-t border-slate-100">Pelo contrário. Costumamos conseguir preços de 20% a 35% menores, pois não embutimos taxas abusivas da loja.</p>
+                </details>
+                <details class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm group">
+                    <summary class="font-bold text-lg cursor-pointer flex justify-between text-premier-dark">
+                        <span>Preciso levar o carro até vocês?</span>
+                        <i class="fas fa-chevron-down text-premier-yellow group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-slate-600 pt-4 border-t border-slate-100">Não. Se precisar, nosso concierge vai até onde o carro estiver.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-slate-50">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up">
+            <h2 class="text-2xl md:text-4xl font-black text-center text-premier-dark mb-12">Concessionária vs Premier</h2>
+            
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+                <div class="hidden md:grid grid-cols-3 bg-premier-dark text-white font-bold text-xl">
+                    <div class="p-6">Aspecto</div>
+                    <div class="p-6 text-center bg-gray-800">Concessionária</div>
+                    <div class="p-6 text-center bg-premier-yellow text-premier-dark">Premier</div>
+                </div>
+
+                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-6 md:p-0">
+                    <div class="md:hidden font-bold text-xl text-premier-dark mb-2">Preço Final</div>
+                    <div class="hidden md:flex items-center p-6 font-bold text-slate-700">Preço Final</div>
+                    <div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0">
+                        <span class="md:hidden text-gray-500 font-semibold">Loja:</span>
+                        <span class="text-red-600 font-medium bg-red-50 px-3 py-1 rounded">Caro (+ Juros)</span>
+                    </div>
+                    <div class="flex justify-between md:justify-center items-center md:p-6">
+                        <span class="md:hidden text-premier-dark font-bold">Premier:</span>
+                        <span class="font-black text-green-700 bg-green-50 px-3 py-1 rounded">Até 35% OFF</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:grid md:grid-cols-3 border-b border-gray-100 p-6 md:p-0">
+                    <div class="md:hidden font-bold text-xl text-premier-dark mb-2 mt-4 border-t pt-4">Ativação</div>
+                    <div class="hidden md:flex items-center p-6 font-bold text-slate-700">Ativação</div>
+                    <div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0">
+                        <span class="md:hidden text-gray-500 font-semibold">Loja:</span>
+                        <span class="text-slate-500">Burocrática</span>
+                    </div>
+                    <div class="flex justify-between md:justify-center items-center md:p-6">
+                        <span class="md:hidden text-premier-dark font-bold">Premier:</span>
+                        <span class="font-bold text-premier-dark bg-yellow-50 px-3 py-1 rounded">Imediata via NF</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:grid md:grid-cols-3 p-6 md:p-0">
+                    <div class="md:hidden font-bold text-xl text-premier-dark mb-2 mt-4 border-t pt-4">Variedade</div>
+                    <div class="hidden md:flex items-center p-6 font-bold text-slate-700">Variedade</div>
+                    <div class="flex justify-between md:justify-center items-center md:p-6 mb-2 md:mb-0">
+                        <span class="md:hidden text-gray-500 font-semibold">Loja:</span>
+                        <span class="text-slate-500">1 Opção (Venda Casada)</span>
+                    </div>
+                    <div class="flex justify-between md:justify-center items-center md:p-6">
+                        <span class="md:hidden text-premier-dark font-bold">Premier:</span>
+                        <span class="font-bold text-premier-dark bg-yellow-50 px-3 py-1 rounded">Multimarcas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-4xl font-black text-center text-premier-dark mb-16">Quem já contratou</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-8 rounded-[2rem] border-t-4 border-premier-yellow shadow-sm">
+                    <div class="flex text-premier-yellow mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 italic mb-4">"Ativação para o meu <strong>Compass 0km</strong> impecável. Saí da Italiana segurado e tranquilo."</p>
+                    <p class="font-bold text-premier-dark uppercase text-sm">- Rodrigo S.</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-[2rem] border-t-4 border-premier-yellow shadow-sm">
+                    <div class="flex text-premier-yellow mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 italic mb-4">"Vistoria VIP para minha <strong>Hilux</strong> no meu trabalho. Atendimento de alto nível."</p>
+                    <p class="font-bold text-premier-dark uppercase text-sm">- Ricardo M.</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-[2rem] border-t-4 border-premier-yellow shadow-sm">
+                    <div class="flex text-premier-yellow mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 italic mb-4">"Seguro do meu <strong>Corolla</strong> com transparência total. Compararam tudo na minha frente."</p>
+                    <p class="font-bold text-premier-dark uppercase text-sm">- Amanda C.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 bg-premier-dark text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-black mb-6">Cotação 100% Sem Compromisso</h2>
+            <p class="text-lg text-slate-300 mb-12">Grátis, rápida e sem pressão. Garantimos que você vai se surpreender com a economia.</p>
+            <a href="https://wa.me/5574999008507?text=olá,%20vim%20pela%20página,%20quero%20uma%20consultoria%20com%20especialistas%20da%20premier%20e%20cotação%20gratuitos.." class="btn-default btn-whatsapp btn-call-to-action text-lg px-12 py-5 shadow-lg shadow-green-900/50">
+                <i class="fab fa-whatsapp text-2xl"></i> COTAR AGORA
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 py-12 px-5 border-t border-slate-200 text-center">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+             <img src="logopremier.png" alt="Premier Seguros" class="h-10 opacity-60 mb-8 grayscale hover:grayscale-0 transition" onerror="this.style.display='none'">
+             
+             <div class="flex justify-center gap-6 mb-10">
+                <a href="https://instagram.com/sigapremier" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group">
+                    <i class="fab fa-instagram text-xl group-hover:scale-110 transition"></i>
+                </a>
+                <a href="https://web.facebook.com/PremierCorretora" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group">
+                    <i class="fab fa-facebook-f text-xl group-hover:scale-110 transition"></i>
+                </a>
+                <a href="https://br.linkedin.com/company/premier-seguros" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group">
+                    <i class="fab fa-linkedin-in text-xl group-hover:scale-110 transition"></i>
+                </a>
+                 <a href="https://g.co/kgs/cgBCSh4" target="_blank" class="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-premier-dark hover:bg-premier-dark hover:text-white transition shadow-sm group">
+                    <i class="fab fa-google text-xl group-hover:scale-110 transition"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full text-sm text-slate-600 mb-10">
+                <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="hover:text-premier-dark transition flex flex-col items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-map-marker-alt text-premier-dark text-lg"></i></div>
+                    <span>Bahia, Brasil</span>
+                </a>
+                <a href="tel:+5574999008507" class="hover:text-premier-dark transition flex flex-col items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-phone text-premier-dark text-lg"></i></div>
+                    <span>(74) 99900-8507</span>
+                </a>
+                <a href="mailto:relacionamento@premierseguros.com.br" class="hover:text-premier-dark transition flex flex-col items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm"><i class="fas fa-envelope text-premier-dark text-lg"></i></div>
+                    <span>Contato Email</span>
+                </a>
+            </div>
+            <p class="text-xs text-slate-400 border-t border-slate-200 pt-8 w-full uppercase tracking-wider">© 2026 Premier Seguros</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter, .counter-float');
+        const speed = 50;
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const isFloat = counter.classList.contains('counter-float');
+                    const inc = target / speed;
+                    if (count < target) {
+                        counter.innerText = isFloat ? (count + inc).toFixed(1) : Math.ceil(count + inc);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+        let observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { animateCounters(); observer.unobserve(entry.target); }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.5 });
+        observer.observe(document.querySelector('#stats-section'));
+    </script>
+</body>
+</html>
