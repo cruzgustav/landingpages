@@ -49,17 +49,19 @@
         
         .hero-gradient { background: linear-gradient(135deg, #001b3a 0%, #00284d 100%); }
         
-        /* Carrossel de Logos - Cores Reais */
+        /* Carrossel de Logos */
         .carousel-container { overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-        .carousel-track { display: flex; animation: scroll 60s linear infinite; width: max-content; align-items: center; }
+        .carousel-track { display: flex; animation: scroll 40s linear infinite; width: max-content; align-items: center; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         
         .carousel-logo {
-            height: 50px; width: auto; margin: 0 2rem;
-            /* SEM FILTROS - Cores Originais */
-            opacity: 1; 
-            object-fit: contain;
+            height: 55px; /* Logos um pouco maiores */
+            width: auto;
+            margin: 0 2.5rem;
+            /* SEM FILTROS - CORES ORIGINAIS */
+            opacity: 1;
             transition: transform 0.3s ease;
+            object-fit: contain;
         }
         .carousel-logo:hover { transform: scale(1.1); }
 
@@ -157,29 +159,30 @@
     <div class="py-8 bg-white border-b border-slate-100">
         <div class="carousel-container">
             <div class="carousel-track">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Zurich_Insurance_Group_logo.svg/512px-Zurich_Insurance_Group_logo.svg.png" class="carousel-logo" alt="Zurich">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Unimed_Logo.svg/512px-Unimed_Logo.svg.png" class="carousel-logo" alt="Unimed">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Tokio_Marine_Holdings_logo.svg/512px-Tokio_Marine_Holdings_logo.svg.png" class="carousel-logo" alt="Tokio Marine">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/SulAm%C3%A9rica_Seguros_logo.svg/512px-SulAm%C3%A9rica_Seguros_logo.svg.png" class="carousel-logo" alt="SulAmérica">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Porto_Seguro_logo.svg/512px-Porto_Seguro_logo.svg.png" class="carousel-logo" alt="Porto Seguro">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/MetLife_logo.svg/512px-MetLife_logo.svg.png" class="carousel-logo" alt="MetLife">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mapfre_logo.svg/512px-Mapfre_logo.svg.png" class="carousel-logo" alt="Mapfre">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Liberty_Mutual_Logo.svg/512px-Liberty_Mutual_Logo.svg.png" class="carousel-logo" alt="Liberty">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Ita%C3%BA_Unibanco_logo.svg/512px-Ita%C3%BA_Unibanco_logo.svg.png" class="carousel-logo" alt="Itaú">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/HDI_Versicherung_AG_Logo.svg/512px-HDI_Versicherung_AG_Logo.svg.png" class="carousel-logo" alt="HDI">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/zurich.png" class="carousel-logo" alt="Zurich">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/unimed-seguros1.png" class="carousel-logo" alt="Unimed Seguros">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/unimed-recife.png" class="carousel-logo" alt="Unimed Recife">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/tokio-marine1.png" class="carousel-logo" alt="Tokio Marine">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/sulamerica1.png" class="carousel-logo" alt="SulAmérica">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/porto-seguro1.png" class="carousel-logo" alt="Porto Seguro">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/metlife1.png" class="carousel-logo" alt="MetLife">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/mapfre1.png" class="carousel-logo" alt="Mapfre">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/liberty.png" class="carousel-logo" alt="Liberty">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/itau.png" class="carousel-logo" alt="Itaú">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/hdi1.png" class="carousel-logo" alt="HDI">
                 <img src="https://logodownload.org/wp-content/uploads/2019/12/hapvida-logo-1536x355.png" class="carousel-logo" alt="Hapvida">
-                <img src="https://logodownload.org/wp-content/uploads/2020/02/excelsior-seguros-logo.png" class="carousel-logo" alt="Excelsior">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Bradesco_logo.svg/512px-Bradesco_logo.svg.png" class="carousel-logo" alt="Bradesco">
-                <img src="https://logodownload.org/wp-content/uploads/2019/09/azul-seguros-logo.png" class="carousel-logo" alt="Azul">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Amil_logo.svg/512px-Amil_logo.svg.png" class="carousel-logo" alt="Amil">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Allianz.svg/512px-Allianz.svg.png" class="carousel-logo" alt="Allianz">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/excelsior.png" class="carousel-logo" alt="Excelsior">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/bradesco1.png" class="carousel-logo" alt="Bradesco">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/azul.png" class="carousel-logo" alt="Azul">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/amil1.png" class="carousel-logo" alt="Amil">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/allianz1.png" class="carousel-logo" alt="Allianz">
 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Zurich_Insurance_Group_logo.svg/512px-Zurich_Insurance_Group_logo.svg.png" class="carousel-logo" alt="Zurich">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Unimed_Logo.svg/512px-Unimed_Logo.svg.png" class="carousel-logo" alt="Unimed">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Tokio_Marine_Holdings_logo.svg/512px-Tokio_Marine_Holdings_logo.svg.png" class="carousel-logo" alt="Tokio Marine">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/SulAm%C3%A9rica_Seguros_logo.svg/512px-SulAm%C3%A9rica_Seguros_logo.svg.png" class="carousel-logo" alt="SulAmérica">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Porto_Seguro_logo.svg/512px-Porto_Seguro_logo.svg.png" class="carousel-logo" alt="Porto Seguro">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Allianz.svg/512px-Allianz.svg.png" class="carousel-logo" alt="Allianz">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/zurich.png" class="carousel-logo" alt="Zurich">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/unimed-seguros1.png" class="carousel-logo" alt="Unimed Seguros">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/tokio-marine1.png" class="carousel-logo" alt="Tokio Marine">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/sulamerica1.png" class="carousel-logo" alt="SulAmérica">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/porto-seguro1.png" class="carousel-logo" alt="Porto Seguro">
+                <img src="https://premierseguros.com.br/wp-content/uploads/2024/04/allianz1.png" class="carousel-logo" alt="Allianz">
             </div>
         </div>
     </div>
@@ -259,7 +262,7 @@
                 Seguro não é só sobre o carro. É sobre garantir que imprevistos não virem dívidas para quem você ama.
             </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 hover:-translate-y-1 transition duration-300">
                     <i class="fas fa-users text-premier-dark text-3xl mb-3"></i>
                     <h4 class="font-bold text-sm md:text-base text-premier-dark">Danos a Terceiros</h4>
