@@ -691,10 +691,11 @@
         function submitForm(e) {
             e.preventDefault();
             const name = document.getElementById('lead-name').value;
+            const email = document.getElementById('lead-email').value;
             const phone = document.getElementById('lead-phone').value;
             
             // Mensagem personalizada para o WhatsApp
-            const text = `Olá! Meu nome é *${name}* (${phone}). Gostaria de garantir a condição especial para seguro de carro 0km.`;
+            const text = `Olá! Gostaria de garantir a condição especial para seguro de carro 0km.\n\n*Meus Dados:*\n*Nome:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone}`;
             const url = `https://wa.me/5581992472012?text=${encodeURIComponent(text)}`;
             
             // Redireciona
