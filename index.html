@@ -382,7 +382,7 @@
                     <div class="badge-trigger">100% Humano</div>
                     <div class="w-16 h-16 mx-auto icon-box-dark mb-6 shadow-lg"><i class="fas fa-user-shield text-2xl"></i></div>
                     <h3 class="text-xl font-black text-premier-dark mb-3 uppercase">Especializados</h3>
-                    <p class="text-slate-600 mb-6 text-base">Esqueça call centers. Você terá um especialista dedicado. Sinistro? Nós resolvemos, você espera o carro chegar.</p>
+                    <p class="text-slate-600 mb-6 text-base">Esqueça call centers. Você terá um especialista dedicado. Sinistro? Nós resolvemos, é só aguardar o carro ficar pronto.</p>
                     <div class="text-xs font-bold text-premier-dark bg-yellow-100 py-2 px-4 rounded inline-block">Atendimento VIP</div>
                 </div>
             </div>
@@ -475,7 +475,7 @@
                     </div>
                     <h3 class="text-xl font-black text-premier-dark mb-4 uppercase">Eventos Naturais</h3>
                     <p class="text-slate-600 text-base leading-relaxed">
-                        Alguns seguros oferecem garantia contra donos causados por eventos naturais como enchentes e quedas de arvore.. Para sinistros cobertos.
+                        Alguns seguros oferecem garantia contra danos causados por eventos naturais como enchentes e quedas de arvore.. Para sinistros cobertos.
                     </p>
                 </div>
             </div>
@@ -691,11 +691,10 @@
         function submitForm(e) {
             e.preventDefault();
             const name = document.getElementById('lead-name').value;
-            const email = document.getElementById('lead-email').value;
             const phone = document.getElementById('lead-phone').value;
             
             // Mensagem personalizada para o WhatsApp
-            const text = `Olá! Gostaria de garantir a condição especial para seguro de carro 0km.\n\n*Meus Dados:*\n*Nome:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone}`;
+            const text = `Olá! Meu nome é *${name}* (${phone}). Gostaria de garantir a condição especial para seguro de carro 0km.`;
             const url = `https://wa.me/5581992472012?text=${encodeURIComponent(text)}`;
             
             // Redireciona
